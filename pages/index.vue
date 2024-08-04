@@ -1,12 +1,14 @@
 <template>
-  <div class="bg-background w-full">
+  <div class="bg-background w-full text-white">
     <!-- Page title -->
-     <TitleSection />
-
+     <IndexTitleSection />
+     <!-- <IndexAboutSection /> -->
+     <IndexPortfolioSection />
+     <div class="h-24"></div>
   </div>
 </template>
+
 <script setup lang="ts">
-import TitleSection from '~/components/Index/TitleSection.vue';
 
 
 </script>
