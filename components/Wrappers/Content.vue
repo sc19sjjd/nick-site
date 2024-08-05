@@ -1,6 +1,6 @@
 <template>
-  <WrappersFullScreen>
-    <div class="w-full w-max-screen-lg flex">
+  <WrappersFullScreen class="justify-center">
+    <div class="w-full max-w-screen-lg">
       <slot></slot>
     </div>
   </WrappersFullScreen>

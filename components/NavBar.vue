@@ -1,5 +1,5 @@
 <template>
-  <WrappersFullScreen class="text-text bg-background flex justify-between pt-2" style="font-family: 'Outfit', sans-serif;">
+  <WrappersFullScreen class="text-text flex justify-between pt-2" style="font-family: 'Outfit', sans-serif;">
     <div class="underline">
       Home
     </div>
