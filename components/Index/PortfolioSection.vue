@@ -4,8 +4,9 @@
       <h1 class="text-orange-700 text-5xl xsm:text-5xl sm:text-6xl" style="font-family: 'Archivo', sans-serif;">
         <!-- Portfolio -->
       </h1>
-      <div class="flex justify-between pb-10">
+      <div class="flex flex-col lg:flex-row justify-between items-center pb-10">
         <IndexPortoflioCaseStudyCard />
+        <div class="pb-10 lg:hidden"></div>
         <IndexPortoflioCaseStudyCard />
       </div>
     </div>
