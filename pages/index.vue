@@ -2,7 +2,7 @@
   <div class="bg-background w-full text-white">
     <!-- Page title -->
      <IndexTitleSection />
-     <!-- <IndexAboutSection /> -->
+     <IndexAboutSection />
      <IndexPortfolioSection />
      <!-- <div class="h-24"></div> -->
   </div>

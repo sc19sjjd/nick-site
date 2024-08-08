@@ -1,10 +1,10 @@
 <template>
   <WrappersContent>
-    <div class="flex flex-col w-full">
-      <h1 class="text-orange-700 text-5xl xsm:text-5xl sm:text-6xl pb-10" style="font-family: 'Archivo', sans-serif;">
+    <div class="flex flex-col w-full pt-20">
+      <h1 class="text-orange-700 text-5xl xsm:text-5xl sm:text-6xl" style="font-family: 'Archivo', sans-serif;">
         <!-- Portfolio -->
       </h1>
-      <div class="flex justify-between pb-20">
+      <div class="flex justify-between pb-10">
         <IndexPortoflioCaseStudyCard />
         <IndexPortoflioCaseStudyCard />
       </div>
