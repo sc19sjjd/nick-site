@@ -2,7 +2,7 @@
   <WrappersContent>
     <div class="flex flex-col w-full">
       <h1 class="text-orange-700 text-5xl xsm:text-5xl sm:text-6xl pb-10" style="font-family: 'Archivo', sans-serif;">
-        Portfolio
+        <!-- Portfolio -->
       </h1>
       <div class="flex justify-between pb-20">
         <IndexPortoflioCaseStudyCard />
@@ -11,8 +11,22 @@
     </div>
   </WrappersContent>
   
-  <div class="w-full h-2 bg-gradient-to-r from-20% from-orange-700 to-80% to-orange-700 via-accent"></div>
-  <div ref="scrollContainer" class="pt-4 w-full flex flex-row">
+  <!-- <div class="w-full h-1 bg-gradient-to-r from-20% from-orange-700 to-80% to-orange-700 via-accent"></div> -->
 
-  </div>
+  <IndexPortoflioCarousel />
+
+  <div class="w-full pt-16"></div>
+
+  <!-- <div class="w-full h-1 bg-gradient-to-r from-20% from-orange-700 to-80% to-orange-700 via-accent"></div> -->
+
+  <!-- <a href="https://www.flaticon.com/free-icons/next" title="next icons">Next icons created by Roundicons - Flaticon</a> -->
 </template>
+
+<script setup lang="ts">
+  import type { NullableHTMLElement } from '~/types';
+
+  const carouselContainer = ref<NullableHTMLElement>(null);
+
+
+
+</script>

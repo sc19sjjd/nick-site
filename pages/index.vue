@@ -4,7 +4,7 @@
      <IndexTitleSection />
      <!-- <IndexAboutSection /> -->
      <IndexPortfolioSection />
-     <div class="h-24"></div>
+     <!-- <div class="h-24"></div> -->
   </div>
 </template>
 
