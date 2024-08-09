@@ -12,17 +12,19 @@
     </div>
 
     <div class="w-full flex flex-row justify-center">
-      <ul ref="scrollContainerEl" class="list-none whitespace-nowrap overflow-x-scroll snap-x snap-mandatory scroll-smooth" 
+      <ul ref="scrollContainerEl" class="list-none whitespace-nowrap overflow-x-scroll snap-x snap-mandatory scroll-smooth" @wheel="onHorizontalScroll"
       :style="{maxWidth: `${scrollContainerMaxWidth}rem`, height: '20rem'}">
         <div class="w-full" style="height:7rem"></div>
-        <div class="inline-block" :style="{width: `${1.8 * listItemWidth}rem`}"></div>
+        <div class="inline-block" :style="{width: `${edgeWidth}rem`}"></div>
+
         <li v-for="i in Array(8).keys()" key="i" ref="listItemsEl" class="relative inline-block snap-center">
           <img ref="listItemImagesEl" class="rounded-md w-full" src="/images/Environment tryout 1.png" alt="Case study 1" 
           :style="{width: `${listItemWidth}rem`}" />
           <div ref="listItemOverlaysEl" class="absolute top-0 left-0 w-full h-full z-40 bg-background opacity-0"></div>
-          <div class="absolute top-0 left-0 w-full h-full z-50 border-red-500 border-2"></div>
+          <!-- <div class="absolute top-0 left-0 w-full h-full z-50 border-red-500 border-2"></div> -->
         </li>
-        <div class="inline-block" :style="{width: `${1.8 * listItemWidth}rem`}"></div>
+
+        <div class="inline-block" :style="{width: `${edgeWidth}rem`}"></div>
       </ul>
     </div>
   </div>
@@ -31,23 +33,21 @@
 <script setup lang="ts">
   import type { NullableHTMLElement } from '~/types';
   // import 'https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js';
+  
+  declare var ViewTimeline: any;  
 
   const scrollContainerEl = ref<NullableHTMLElement>(null);
   const listItemsEl = ref<Array<NullableHTMLElement>>([]);
   const listItemImagesEl = ref<Array<NullableHTMLElement>>([]);
   const listItemOverlaysEl = ref<Array<NullableHTMLElement>>([]);
 
-  declare var ViewTimeline: any;  
-
   const listItemWidth = ref<number>(0);
   const scrollContainerMaxWidth = computed(() => { return 4 * listItemWidth.value; });
-  
+  const edgeWidth = computed(() => { return 1.8 * listItemWidth.value; });
+
   const carouselSize = ref<number>(0);
 
   const setCarouselSize = () => {
-    // console.log(document.body.clientWidth);
-    // console.log(window.innerWidth);
-
     let screenWidth = window.innerWidth;
     
     if (screenWidth > 1024 && carouselSize.value != 3) {
@@ -63,8 +63,6 @@
     let opacities: Array<number> = [];
     let scales: Array<number> = [];
     let translates: Array<number> = [];
-    
-    console.log(carouselSize.value);
 
     if (carouselSize.value === 0) {
       return;
@@ -89,7 +87,6 @@
       listItemsEl.value,
       listItemImagesEl.value, 
       listItemOverlaysEl.value, 
-      scrollContainerEl.value, 
       [...opacities, ...opacities.reverse()], 
       transforms
     );
@@ -111,7 +108,6 @@
     listItems: Array<NullableHTMLElement>, 
     listItemImages: Array<NullableHTMLElement>, 
     listItemOverlays: Array<NullableHTMLElement>,
-    scrollContainer: NullableHTMLElement,
     opacities: Array<number>,
     transforms: Array<string>,
   ) => {
@@ -154,15 +150,38 @@
     });
   }
 
+  // const emit = defineEmits<{
+  //   (e: 'centerItemChange', index: number): void
+  // }>();
+
+  // const currentCenterItemIndex = ref<number>(0);
+
+  const currentCenterItemIndex = defineModel('centerItem', { type: Number, default: 0 });
+
+  const onHorizontalScroll = (event: Event) => {
+    const scrollLeft = scrollContainerEl.value!.scrollLeft / 16;
+
+    // const unrounded = (scrollLeft - edgeWidth.value + listItemWidth.value * 1.5) / (listItemWidth.value)
+    currentCenterItemIndex.value = Math.round((scrollLeft - edgeWidth.value + listItemWidth.value * 1.5) / (listItemWidth.value) + 0.015);
+
+    // console.log(scrollLeft);
+    // console.log(currentCenterItemIndex.value);
+    // console.log(unrounded);
+  }
+
+  // watchEffect(() => {
+  //   emit('centerItemChange', currentCenterItemIndex.value);
+  // });
+
   onMounted(() => {
     // console.log(carouselContainer.value);
     // console.log(carouselContent.value);
     // console.log(listItemsEl.value);
     // console.log(listItemsImagesEl.value);
 
-    // createListItemAnimations(listItemsEl.value, listItemImagesEl.value, listItemOverlaysEl.value, scrollContainerEl.value);
     setCarouselSize();
     addEventListener('resize', setCarouselSize);
+    scrollContainerEl.value?.addEventListener('scroll', onHorizontalScroll);
   });
 
 </script>

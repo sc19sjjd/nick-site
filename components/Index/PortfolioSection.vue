@@ -14,9 +14,9 @@
   
   <!-- <div class="w-full h-1 bg-gradient-to-r from-20% from-orange-700 to-80% to-orange-700 via-accent"></div> -->
 
-  <IndexPortoflioCarousel />
+  <IndexPortoflioCarousel v-model:center-item="centerItem" />
 
-  <div class="w-full pt-16"></div>
+  <div class="w-full pt-16 text-xl">{{ centerItem }}</div>
 
   <!-- <div class="w-full h-1 bg-gradient-to-r from-20% from-orange-700 to-80% to-orange-700 via-accent"></div> -->
 
@@ -27,7 +27,7 @@
   import type { NullableHTMLElement } from '~/types';
 
   const carouselContainer = ref<NullableHTMLElement>(null);
-
+  const centerItem = ref<number>(0);
 
 
 </script>
