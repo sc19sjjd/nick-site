@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-8 pb-8 w-full relative">
+  <div class="w-full relative">
     <div class="absolute -z-10 top-0 left-0 w-full h-full flex justify-between items-center px-2">
       <div class="w-14 h-14 z-20 rounded-full flex justify-center items-center opacity-30 transform rotate-180 hover:opacity-100 hover:cursor-pointer 
         hover:bg-background hover:shadow-2xl shadow-black transition duration-500">
@@ -12,14 +12,14 @@
     </div>
 
     <div class="w-full flex flex-row justify-center">
-      <ul ref="scrollContainerEl" class="list-none whitespace-nowrap overflow-x-scroll snap-x snap-mandatory scroll-smooth" @wheel="onHorizontalScroll"
-      :style="{maxWidth: `${scrollContainerMaxWidth}rem`, height: '20rem'}">
-        <div class="w-full" style="height:7rem"></div>
+      <ul ref="scrollContainerEl" class="list-none whitespace-nowrap overflow-y-visible overflow-x-scroll snap-x snap-mandatory scroll-smooth" @wheel="onHorizontalScroll"
+      :style="{ width: `${scrollContainerMaxWidth}rem`, height: `${containerHeight}rem` }">
+        <div class="w-full" :style="{ height: `${yPadding}rem` }"></div>
         <div class="inline-block" :style="{width: `${edgeWidth}rem`}"></div>
 
-        <li v-for="i in Array(8).keys()" key="i" ref="listItemsEl" class="relative inline-block snap-center">
+        <li v-for="i in Array(8).keys()" key="i" ref="listItemsEl" class="overflow-y-visible relative inline-block snap-center">
           <img ref="listItemImagesEl" class="rounded-md w-full" src="/images/Environment tryout 1.png" alt="Case study 1" 
-          :style="{width: `${listItemWidth}rem`}" />
+          :style="{ width: `${listItemWidth}rem` }" />
           <div ref="listItemOverlaysEl" class="absolute top-0 left-0 w-full h-full z-40 bg-background opacity-0"></div>
           <!-- <div class="absolute top-0 left-0 w-full h-full z-50 border-red-500 border-2"></div> -->
         </li>
@@ -44,6 +44,10 @@
   const listItemWidth = ref<number>(0);
   const scrollContainerMaxWidth = computed(() => { return 4 * listItemWidth.value; });
   const edgeWidth = computed(() => { return 1.8 * listItemWidth.value; });
+
+  // height for padding element and height for container needed for styling 
+  const yPadding = ref<number>(0);
+  const containerHeight = ref<number>(0);
 
   const carouselSize = ref<number>(0);
 
@@ -74,12 +78,17 @@
       translates = [12, 5, 2, 0];
 
       listItemWidth.value = 12;
+      yPadding.value = 5;
+      containerHeight.value = 16.5;
+
     } else if (carouselSize.value === 3) {
       opacities = [1, 0.4, 0.2, 0.1, 0];
       scales = [1, 1.4, 1.7, 2];
       translates = [20, 10, 3, 0];
 
       listItemWidth.value = 15;
+      yPadding.value = 4.5;
+      containerHeight.value = 17.5;
     }
 
     const transforms = createTransforms(scales, translates);
