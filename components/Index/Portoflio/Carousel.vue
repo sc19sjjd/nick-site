@@ -12,7 +12,7 @@
     </div>
 
     <div class="w-full flex flex-row justify-center">
-      <ul ref="scrollContainerEl" class="list-none whitespace-nowrap overflow-y-visible overflow-x-scroll snap-x snap-mandatory scroll-smooth" @wheel="onHorizontalScroll"
+      <ul ref="scrollContainerEl" class="list-none whitespace-nowrap overflow-y-visible overflow-x-scroll snap-x snap-mandatory scroll-smooth"
       :style="{ width: `${scrollContainerMaxWidth}rem`, height: `${containerHeight}rem` }">
         <div class="w-full" :style="{ height: `${yPadding}rem` }"></div>
         <div class="inline-block" :style="{width: `${edgeWidth}rem`}"></div>
@@ -128,7 +128,7 @@
 
       listItem!.animate(
         {
-          zIndex: [0, 100, 0],
+          zIndex: [5, 100, 5],
         },
         {
           fill: "both",
