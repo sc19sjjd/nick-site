@@ -1,8 +1,8 @@
 <template>
   <WrappersContent>
-    <div class="flex flex-col w-full pt-20 pb-16">
-      <h1 class="text-orange-700 text-5xl xsm:text-5xl sm:text-6xl" style="font-family: 'Archivo', sans-serif;">
-        <!-- Portfolio -->
+    <div class="flex flex-col w-full pb-2 pt-20">
+      <h1 class="text-orange-700 text-5xl xsm:text-5xl sm:text-6xl pb-20 text-center" style="font-family: 'Archivo Black', sans-serif;">
+        Portfolio
       </h1>
       <div class="flex flex-col lg:flex-row justify-between items-center z-30">
         <IndexPortoflioCaseStudyCard />
@@ -12,32 +12,39 @@
     </div>
   </WrappersContent>
   
-  <div class="relative overflow-visible">
-    <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center">
-      <div class="rounded-full z-10 bg-backgroundSecondary opacity-10 blur-2xl"
-      style="width: 100px; height: 100px; transform: translateY(-60px) scale(3.5)"></div>
-    </div>
+  
+  <div class="min-h-svh pt-20 flex flex-col justify-between">
+    <!-- <div class="flex flex-col space-between"> -->
 
-    <IndexPortoflioCarousel v-model:center-item="centerItemIndex" />
-  </div>
+      <div class="relative overflow-visible">
+        <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center">
+          <div class="rounded-full z-10 bg-orange-300 opacity-30 blur-3xl"
+          style="width: 100px; height: 100px; transform: translateY(-60px) scale(3.5)"></div>
+        </div>
 
-  <WrappersFullScreen>
-    <div class="w-full z-20 flex-col items-center text-center pb-8 pt-4">
-      <h3 class="text-xl">{{ titles[centerItemIndex] }} {{ centerItemIndex }}</h3>
-      <p class="text-sm font-light">{{ descriptions[centerItemIndex] }} {{ centerItemIndex }}</p>
-    </div>
-  </WrappersFullScreen>
+        <IndexPortoflioCarousel v-model:center-item="centerItemIndex" />
+      </div>
 
-  <div class="bg-backgroundSecondary relative w-full text-black z-20 pb-10 shadow-inner shadow-background">
-    <!-- <div class="absolute top-0 left-0 w-full h-6 bg-background -z-10"></div> -->
+      <WrappersFullScreen>
+        <div class="w-full z-20 flex-col items-center text-center pb-8 pt-4">
+          <h3 class="text-xl">{{ titles[centerItemIndex] }} {{ centerItemIndex }}</h3>
+          <p class="text-sm font-light">{{ descriptions[centerItemIndex] }} {{ centerItemIndex }}</p>
+        </div>
+      </WrappersFullScreen>
 
-    <!-- <div class="w-full flex justify-center">
-      <Button>See more</Button>
-    </div> -->
-      
-    <div class="pb-6"></div>
+      <div class="bg-orange-200 relative w-full text-black z-20 pb-10 shadow-inner shadow-background">
+        <!-- <div class="absolute top-0 left-0 w-full h-6 bg-background -z-10"></div> -->
 
-    <IndexPortoflioSeeMore  />
+        <!-- <div class="w-full flex justify-center">
+          <Button>See more</Button>
+        </div> -->
+          
+        <div class="pb-6"></div>
+
+        <IndexPortoflioSeeMore  />
+      </div>
+
+    <!-- </div> -->
   </div>
 
   <!-- <div class="w-full pt-16 text-xl">{{ centerItem }}</div> -->
