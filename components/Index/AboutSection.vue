@@ -1,6 +1,6 @@
 <template>
   <WrappersContent class="bg-orange-100 z-10">
-    <div class="w-full pt-24"></div>
+    <div class="w-full pt-36"></div>
 
     <div class="min-h-dvh flex flex-col text-black justify-between py-20">
       <h2 class="text-orange-700 text-center text-6xl" style="font-family: 'Archivo Black', sans-serif;">

@@ -2,9 +2,8 @@
   <div class="relative z-10">
     <WrappersFullScreen class="flex-col">
       <!-- <div class="w-full h-80 sm:h-72 lg:h-64"></div> -->
-      <div class="flex justify-center h-dvh items-center xsm:justify-between">
-        <div class="hidden xsm:block"></div>
-        <div class="flex flex-col">
+      <div class="flex justify-center h-dvh xsm:justify-between">
+        <div class="flex flex-col pt-20">
           <h1 class="text-orange-700 text-6xl xsm:text-7xl sm:text-8xl lg:text-9xl" style="font-family: 'Archivo black', sans-serif;">
             NICHOLAS <br> CLAY
           </h1>
@@ -18,17 +17,35 @@
     </WrappersFullScreen>
 
     <div class="absolute -z-10 left-0 top-0 w-full h-full flex justify-center items-end">
-      <div class="ellipse bg-background"></div>
+      <div class="ellipse bg-black overflow-hidden">
+        <video class="main-video" autoplay muted loop playsinline preload="metadata">
+          <source src="/public/videos/pathways-av.mp4" type="video/mp4" />
+        </video>
+      </div>
     </div>
+
+    <!-- <div class="absolute -z-10 left-0 top-0 w-full h-full flex justify-center overflow-visible">
+      <div class="ellipse">
+        <video class="main-video" autoplay muted loop playsinline preload="metadata">
+          <source src="/public/videos/pathways-av.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div> -->
   </div>
 </template>
 
 <style scoped>
   .ellipse {
-    clip-path: ellipse(70% 50% at center);
-    width: 100%;
-    height: 80%;
+    clip-path: ellipse(110% 50% at center);
+    width: 200%;
+    height: 150%;
     min-width: 1100px;
     transform: translateY(7rem);
+  }
+
+  .main-video {
+    width: 100%;
+    height: 100%;
+    transform: translate(20rem, 20rem) scale(1.2);
   }
 </style>
