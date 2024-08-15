@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full max-w-md flex flex-col bg-grey rounded-xl border-lightGrey border-0 shadow-none shadow-black">
+  <div class="w-full h-full max-w-md flex flex-col bg-gray-100/5 z-20 rounded-xl border-lightGrey border-0 shadow-none shadow-black">
     <div class="flex flex-col p-0">
       <img class="rounded-xl rounded-bl-none rounded-br-none border-lightGrey border-b-0 w-full z-30" 
       src="/images/Environment tryout 1.png" alt="Case study 1" />

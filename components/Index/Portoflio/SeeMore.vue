@@ -1,7 +1,7 @@
 <template>
   <WrappersContent>
     <div class="w-full flex flex-row justify-center">
-      <div class="bg-grey p-3 flex flex-row justify-center items-center rounded-xl">
+      <div class="bg-gray-100/5 z-20 p-3 flex flex-row justify-center items-center rounded-xl border border-lightGrey">
         <div class="bar-none w-full max-w-52 h-96 overflow-y-auto flex flex-col items-center">
           <div v-for="(src, index) in sources" :key="index" class="w-full pb-2 last:pb-0 z-20">
             <div class="relative hover:cursor-pointer" @click="onClickPreview(src)">
