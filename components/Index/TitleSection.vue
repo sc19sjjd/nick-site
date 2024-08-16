@@ -19,7 +19,7 @@
     <div class="absolute -z-10 left-0 top-0 w-full h-full flex justify-center items-end">
       <div class="ellipse bg-black overflow-hidden">
         <video class="main-video" autoplay muted loop playsinline preload="metadata">
-          <source src="/public/videos/pathways-av.mp4" type="video/mp4" />
+          <source src="/public/videos/pathways-optimised-no-audio.mp4" type="video/mp4" />
         </video>
       </div>
     </div>
