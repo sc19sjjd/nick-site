@@ -1,6 +1,6 @@
 <template>
-  <WrappersContent>
-    <div class="flex flex-col w-full pb-2 pt-20">
+  <WrappersContent id="portfolio">
+    <div class="flex flex-col w-full pb-2 pt-24">
       <h1 class="text-orange-700 text-5xl xsm:text-5xl sm:text-6xl pb-20 text-center" style="font-family: 'Archivo Black', sans-serif;">
         Portfolio
       </h1>

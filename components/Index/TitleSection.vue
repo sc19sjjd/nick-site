@@ -1,5 +1,5 @@
 <template>
-  <div class="relative z-10">
+  <div class="relative z-10" id="title">
     <WrappersFullScreen class="flex-col">
       <!-- <div class="w-full h-80 sm:h-72 lg:h-64"></div> -->
       <div class="flex justify-center h-dvh xsm:justify-between">

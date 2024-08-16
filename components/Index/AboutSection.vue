@@ -2,7 +2,7 @@
   <WrappersContent class="bg-orange-100 relative">
     <div ref="viewReferenceEl" class="w-full pt-32"></div>
 
-    <div class="min-h-dvh text-black py-20">
+    <div class="min-h-dvh text-black py-20" id="about">
       <h2 class="text-orange-700 text-center text-6xl pb-20 z-10 relative" style="font-family: 'Archivo Black', sans-serif;">
         About me
       </h2>
