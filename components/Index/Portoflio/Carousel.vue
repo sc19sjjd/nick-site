@@ -159,35 +159,15 @@
     });
   }
 
-  // const emit = defineEmits<{
-  //   (e: 'centerItemChange', index: number): void
-  // }>();
-
-  // const currentCenterItemIndex = ref<number>(0);
-
   const currentCenterItemIndex = defineModel('centerItem', { type: Number, default: 0 });
 
   const onHorizontalScroll = (event: Event) => {
     const scrollLeft = scrollContainerEl.value!.scrollLeft / 16;
 
-    // const unrounded = (scrollLeft - edgeWidth.value + listItemWidth.value * 1.5) / (listItemWidth.value)
     currentCenterItemIndex.value = Math.round((scrollLeft - edgeWidth.value + listItemWidth.value * 1.5) / (listItemWidth.value) + 0.015);
-
-    // console.log(scrollLeft);
-    // console.log(currentCenterItemIndex.value);
-    // console.log(unrounded);
   }
 
-  // watchEffect(() => {
-  //   emit('centerItemChange', currentCenterItemIndex.value);
-  // });
-
   onMounted(() => {
-    // console.log(carouselContainer.value);
-    // console.log(carouselContent.value);
-    // console.log(listItemsEl.value);
-    // console.log(listItemsImagesEl.value);
-
     setCarouselSize();
     addEventListener('resize', setCarouselSize);
     scrollContainerEl.value?.addEventListener('scroll', onHorizontalScroll);

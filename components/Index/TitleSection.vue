@@ -23,14 +23,6 @@
         </video>
       </div>
     </div>
-
-    <!-- <div class="absolute -z-10 left-0 top-0 w-full h-full flex justify-center overflow-visible">
-      <div class="ellipse">
-        <video class="main-video" autoplay muted loop playsinline preload="metadata">
-          <source src="/public/videos/pathways-av.mp4" type="video/mp4" />
-        </video>
-      </div>
-    </div> -->
   </div>
 </template>
 
