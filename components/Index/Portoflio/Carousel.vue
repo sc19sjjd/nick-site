@@ -32,7 +32,7 @@
 
 <script setup lang="ts">
   import type { NullableHTMLElement } from '~/types';
-  // import 'https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js';
+  import 'https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js';
   
   declare var ViewTimeline: any;  
 
