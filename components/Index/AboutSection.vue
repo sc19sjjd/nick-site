@@ -80,9 +80,12 @@
       axis: "block",
     });
 
+    const opacity = [0, 0.5, 1, 1, 1, 1];
+
     roomRender!.animate(
       {
         transform: ["translate(0, -300px)", "translate(0, 0)"],
+        opacity: opacity
       },
       {
         fill: "both",
@@ -93,6 +96,7 @@
     bed!.animate(
       {
         transform: ["translate(96px, -200px)", "translate(96px, 271px)"],
+        opacity: opacity
       },
       {
         fill: "both",
@@ -103,6 +107,7 @@
     desk!.animate(
       {
         transform: ["translate(266px, -400px)", "translate(266px, 312px)"],
+        opacity: opacity
       },
       {
         fill: "both",
@@ -113,6 +118,7 @@
     chair!.animate(
       {
         transform: ["translate(275px, -200px)", "translate(275px, 329px)"],
+        opacity: opacity
       },
       {
         fill: "both",
@@ -123,6 +129,7 @@
     plantLamp!.animate(
       {
         transform: ["translate(26px, -300px)", "translate(26px, 318px)"],
+        opacity: opacity
       },
       {
         fill: "both",
@@ -133,6 +140,7 @@
     shelves!.animate(
       {
         transform: ["translate(42px, -500px)", "translate(42px, 196px)"],
+        opacity: opacity
       },
       {
         fill: "both",
