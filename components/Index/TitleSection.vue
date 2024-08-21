@@ -13,7 +13,7 @@
       
         <WrappersFullScreen class="flex-col z-20 relative">
           <!-- <div class="w-full h-80 sm:h-72 lg:h-64"></div> -->
-          <div ref="titleContentEl" class="flex justify-center h-dvh xsm:justify-between pt-8">
+          <div ref="titleContentEl" class="flex justify-center h-dvh xsm:justify-between pt-20">
             <div class="flex flex-col">
               <h1 class="text-orange-700 text-6xl xsm:text-7xl sm:text-8xl lg:text-9xl" style="font-family: 'Archivo black', sans-serif;">
                 NICHOLAS <br> CLAY
