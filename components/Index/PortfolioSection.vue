@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-slate-600 z-30">
+  <section class="bg-background z-30">
   
     <div class="sticky top-0 z-30">
       <NavBar :underline="'portfolio'" />
