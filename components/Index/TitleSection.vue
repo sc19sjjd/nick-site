@@ -1,14 +1,14 @@
 <template>
-  <section class="relative z-50 justify-center bg-orange-300" id="title">
+  <section class="relative z-50 justify-center bg-background" id="title">
     <!-- <div class="sticky top-0 -z-10">
       <NavBar />
     </div> -->
 
-    <div class="ellipse bg-slate-400" :style="{ height: ellipseHeight }">
+    <div class="ellipse bg-background" :style="{ height: ellipseHeight }">
       <div ref="outerDivEl" class="" :style="{ transform: 'translateY(-4.8rem)', height: outerDivHeight }">
 
         <div ref="navBarEl" class="sticky top-0 z-50 text-white">
-          <NavBar />
+          <NavBar :underline="'home'" />
         </div>
       
         <WrappersFullScreen class="flex-col z-20 relative">

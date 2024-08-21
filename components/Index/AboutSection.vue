@@ -1,10 +1,12 @@
 <template>
-  <section id="about-section" class="bg-orange-100 relative">
-    <div class="bg-orange-100" style="transform: translateY(2.5rem)">
-    <div class="sticky top-0 z-40 text-black" style="transform: translateY(-2.5rem)">
-      <NavBar />
+  <section id="about-section" class="bg-orange-100 relative z-40">
+    <div ref="outerDivEl" class="clip-path bg-orange-100" :style="{ transform: 'translateY(2.5rem)', height: outerDivHeight }">
+      <div ref="innerDivEl" class="" :style="{ height: innerDivHeight }">
+    <div ref="aboutNavBarEl" class="sticky top-0 z-40 text-black" style="transform: translateY(-2.5rem)">
+      <NavBar :underline="'about'" />
     </div>
 
+    <div ref="contentEl">
     <WrappersContent class="relative">
       <div ref="viewReferenceEl" class="w-full pt-6"></div>
 
@@ -58,11 +60,78 @@
       </div>
     </WrappersContent>
     </div>
+    </div>
+    </div>
   </section>
 </template>
 
+<style scoped>
+  .clip-path {
+    clip-path: ellipse(100% 100% at center);
+  }
+
+  .bed {
+    width: 214px;
+    transform: translate(96px, 271px);
+  }
+
+  .desk {
+    width: 163px;
+    transform: translate(266px, 312px);
+  }
+
+  .chair {
+    width: 56px;
+    transform: translate(275px, 329px);
+  }
+
+  .plant-lamp {
+    width: 129px;
+    transform: translate(26px, 318px);
+  }
+
+  .shelves {
+    width: 87px;
+    transform: translate(42px, 196px);
+  }
+</style>
+
 <script setup lang="ts">
   import type { NullableHTMLElement } from '~/types';
+
+  const outerDivEl = ref<NullableHTMLElement>(null);
+  const innerDivEl = ref<NullableHTMLElement>(null);
+  const aboutNavBarEl = ref<NullableHTMLElement>(null);
+  const contentEl = ref<NullableHTMLElement>(null);
+
+  const totalContentHeight = computed<number>(() => {
+    if (!contentEl.value || !aboutNavBarEl.value) {
+      console.log(!aboutNavBarEl.value)
+      console.log(!contentEl.value)
+      return 0;
+    }
+
+    // height in rem
+    let height = ((aboutNavBarEl.value!.clientHeight + contentEl.value!.clientHeight) / 16);
+
+    return height;
+  });
+
+  const outerDivHeight = computed<string>(() => {
+    if (totalContentHeight.value == 0) {
+      return "100%";
+    } else {
+      return `${totalContentHeight.value}rem`;
+    }
+  });
+
+  const innerDivHeight = computed<string>(() => {
+    if (totalContentHeight.value == 0) {
+      return "100%";
+    } else {
+      return `${totalContentHeight.value + 5}rem`;
+    }
+  });
 
   declare var ViewTimeline: any;  
 
@@ -169,30 +238,3 @@
     );
   });
 </script>
-
-<style scoped>
-  .bed {
-    width: 214px;
-    transform: translate(96px, 271px);
-  }
-
-  .desk {
-    width: 163px;
-    transform: translate(266px, 312px);
-  }
-
-  .chair {
-    width: 56px;
-    transform: translate(275px, 329px);
-  }
-
-  .plant-lamp {
-    width: 129px;
-    transform: translate(26px, 318px);
-  }
-
-  .shelves {
-    width: 87px;
-    transform: translate(42px, 196px);
-  }
-</style>

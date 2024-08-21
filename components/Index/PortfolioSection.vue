@@ -1,7 +1,13 @@
 <template>
-  <section id="portfolio" class="bg-background">
+  <section class="bg-slate-600 z-30">
+  
+    <div class="sticky top-0 z-30">
+      <NavBar :underline="'portfolio'" />
+    </div>
+
+    <div class="w-full pt-4"></div>
   <WrappersContent id="portfolio">
-    <div class="flex flex-col w-full pb-2 pt-24">
+    <div class="flex flex-col w-full pb-2 pt-20">
       <h1 class="text-orange-700 text-5xl xsm:text-5xl sm:text-6xl pb-20 text-center" style="font-family: 'Archivo Black', sans-serif;">
         Portfolio
       </h1>
