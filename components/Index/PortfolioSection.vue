@@ -25,7 +25,7 @@
 
       <div class="relative overflow-visible">
         <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center">
-          <div class="rounded-full z-10 bg-orange-500 opacity-20 blur-2xl"
+          <div class="rounded-full z-10 bg-orange-300 opacity-20 blur-2xl"
           style="width: 100px; height: 100px; transform: translateY(-100px) scale(7)"></div>
         </div>
 
