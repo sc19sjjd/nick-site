@@ -1,56 +1,64 @@
 <template>
-  <WrappersContent class="bg-orange-100 relative">
-    <div ref="viewReferenceEl" class="w-full pt-32"></div>
+  <section id="about-section" class="bg-orange-100 relative">
+    <div class="bg-orange-100" style="transform: translateY(2.5rem)">
+    <div class="sticky top-0 z-40 text-black" style="transform: translateY(-2.5rem)">
+      <NavBar />
+    </div>
 
-    <div class="min-h-dvh text-black py-20" id="about">
-      <h2 class="text-orange-700 text-center text-6xl pb-20 z-10 relative" style="font-family: 'Archivo Black', sans-serif;">
-        About me
-      </h2>
+    <WrappersContent class="relative">
+      <div ref="viewReferenceEl" class="w-full pt-6"></div>
 
-      <div class="flex flex-row w-full justify-between">
-        <div class="flex flex-col h-full justify-between">
-            <p class="max-w-md pb-10">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-              Mauris euismod, nisl eget ultricies ultrices, 
-              nisl nisi aliquam nisl, euismod aliquet nisi nunc euismod. 
-              Sed euismod, nisl eget ultricies ultrices, 
-              nisl nisi aliquam nisl, euismod aliquet nisi nunc euismod. 
-              Sed euismod, nisl eget ultricies ultrices, 
-              nisl nisi aliquam nisl, euis
-            </p>
-            <p class="max-w-md pb-10">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-              Mauris euismod, nisl eget ultricies ultrices, 
-              nisl nisi aliquam nisl, euismod aliquet nisi nunc euismod. 
-              Sed euismod, nisl eget ultricies ultrices, 
-              nisl nisi aliquam nisl, euismod aliquet nisi nunc euismod.
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-              Mauris euismod, nisl eget ultricies ultrices, 
-              nisl nisi aliquam nisl, euismod aliquet nisi nunc euismod.
-            </p>
-            <p class="max-w-md">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-              Mauris euismod, nisl eget ultricies ultrices, 
-              nisl nisi aliquam nisl, euismod aliquet nisi nunc euismod. 
-              Sed euismod, nisl eget ultricies ultrices, 
-              nisl nisi aliquam nisl, euismod aliquet nisi nunc euismod.
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-              Mauris euismod, nisl eget ultricies ultrices, 
-              nisl nisi aliquam nisl, euismod aliquet nisi nunc euismod.
-            </p>
-        </div>
+      <div class="h-dvh text-black pb-20 pt-20" id="about">
+        <h2 class="text-orange-700 text-center text-6xl pb-20 z-10 relative" style="font-family: 'Archivo Black', sans-serif;">
+          About me
+        </h2>
 
-        <div class="flex items-end relative">
-          <img ref="roomRenderEl" class="w-full max-w-md object-cover" src="/public/images/room-render.png" alt="room render" />
-          <img ref="bedEl" class="bed absolute top-0 left-0 w-full" src="/public/images/bed.png" alt="bed" />
-          <img ref="deskEl" class="desk absolute top-0 left-0 w-full" src="/public/images/desk.png" alt="desk" />
-          <img ref="chairEl" class="chair absolute top-0 left-0 w-full" src="/public/images/chair.png" alt="chair" />
-          <img ref="plantLampEl" class="plant-lamp absolute top-0 left-0 w-full" src="/public/images/plant-lamp.png" alt="plant lamp" />
-          <img ref="shelvesEl" class="shelves absolute top-0 left-0 w-full" src="/public/images/shelves.png" alt="shelves" />
+        <div class="flex flex-row w-full justify-between">
+          <div class="flex flex-col h-full justify-between">
+              <p class="max-w-md pb-10">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Mauris euismod, nisl eget ultricies ultrices, 
+                nisl nisi aliquam nisl, euismod aliquet nisi nunc euismod. 
+                Sed euismod, nisl eget ultricies ultrices, 
+                nisl nisi aliquam nisl, euismod aliquet nisi nunc euismod. 
+                Sed euismod, nisl eget ultricies ultrices, 
+                nisl nisi aliquam nisl, euis
+              </p>
+              <p class="max-w-md pb-10">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Mauris euismod, nisl eget ultricies ultrices, 
+                nisl nisi aliquam nisl, euismod aliquet nisi nunc euismod. 
+                Sed euismod, nisl eget ultricies ultrices, 
+                nisl nisi aliquam nisl, euismod aliquet nisi nunc euismod.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Mauris euismod, nisl eget ultricies ultrices, 
+                nisl nisi aliquam nisl, euismod aliquet nisi nunc euismod.
+              </p>
+              <p class="max-w-md">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Mauris euismod, nisl eget ultricies ultrices, 
+                nisl nisi aliquam nisl, euismod aliquet nisi nunc euismod. 
+                Sed euismod, nisl eget ultricies ultrices, 
+                nisl nisi aliquam nisl, euismod aliquet nisi nunc euismod.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Mauris euismod, nisl eget ultricies ultrices, 
+                nisl nisi aliquam nisl, euismod aliquet nisi nunc euismod.
+              </p>
+          </div>
+
+          <div class="flex items-end relative">
+            <img ref="roomRenderEl" class="w-full max-w-md object-cover" src="/public/images/room-render.png" alt="room render" />
+            <img ref="bedEl" class="bed absolute top-0 left-0 w-full" src="/public/images/bed.png" alt="bed" />
+            <img ref="deskEl" class="desk absolute top-0 left-0 w-full" src="/public/images/desk.png" alt="desk" />
+            <img ref="chairEl" class="chair absolute top-0 left-0 w-full" src="/public/images/chair.png" alt="chair" />
+            <img ref="plantLampEl" class="plant-lamp absolute top-0 left-0 w-full" src="/public/images/plant-lamp.png" alt="plant lamp" />
+            <img ref="shelvesEl" class="shelves absolute top-0 left-0 w-full" src="/public/images/shelves.png" alt="shelves" />
+          </div>
         </div>
       </div>
+    </WrappersContent>
     </div>
-  </WrappersContent>
+  </section>
 </template>
 
 <script setup lang="ts">

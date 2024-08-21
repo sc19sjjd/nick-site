@@ -5,7 +5,7 @@
     </div> -->
 
     <div class="ellipse bg-slate-400" :style="{ height: ellipseHeight }">
-      <div ref="outerDivEl" class="" :style="{ transform: 'translateY(-3rem)', height: outerDivHeight }">
+      <div ref="outerDivEl" class="" :style="{ transform: 'translateY(-4.8rem)', height: outerDivHeight }">
 
         <div ref="navBarEl" class="sticky top-0 z-50 text-white">
           <NavBar />
@@ -46,7 +46,7 @@
     width: 100%;
     height: 100%;
     min-width: 1100px;
-    transform: translateY(3rem);
+    transform: translateY(4.8rem);
   }
 
   .main-video {
