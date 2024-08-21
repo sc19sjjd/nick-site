@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-background w-full text-white">
+  <div class="w-full text-white">
     <!-- Page title -->
      <IndexTitleSection />
      <IndexAboutSection />
