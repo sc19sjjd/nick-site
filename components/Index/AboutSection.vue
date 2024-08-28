@@ -67,7 +67,7 @@
 
 <style scoped>
   .clip-path {
-    clip-path: ellipse(100% 100% at center);
+    clip-path: xywh(0 -10px 100% 100%);
   }
 
   .bed {
