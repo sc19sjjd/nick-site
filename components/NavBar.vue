@@ -1,12 +1,16 @@
 <template>
-  <WrappersFullScreen class="flex justify-between pt-2 z-50" style="font-family: 'Outfit', sans-serif;">
-    <div class="hover:cursor-pointer hover:text-orange-600" :class="{ 'underline': underline == 'home' }" @click="scrollTo('title')">
+  <WrappersFullScreen class="flex justify-between pt-2 z-50
+  underline-offset-2 decoration-2" style="font-family: 'Outfit', sans-serif;">
+    <div class="hover:cursor-pointer hover:text-orange-600
+    decoration-2 underline-offset-3" :class="{ 'underline': underline == 'home' }" @click="scrollTo('title')">
       Home
     </div>
-    <div class="hover:cursor-pointer hover:text-orange-600" :class="{ 'underline': underline == 'about' }" @click="scrollTo('about')">
+    <div class="hover:cursor-pointer hover:text-orange-600
+    decoration-2 underline-offset-3" :class="{ 'underline': underline == 'about' }" @click="scrollTo('about')">
       About
     </div>
-    <div class="hover:cursor-pointer hover:text-orange-600" :class="{ 'underline': underline == 'portfolio' }" @click="scrollTo('portfolio')">
+    <div class="hover:cursor-pointer hover:text-orange-600
+    decoration-2 underline-offset-3" :class="{ 'underline': underline == 'portfolio' }" @click="scrollTo('portfolio')">
       Portfolio
     </div>
     <div class="hover:cursor-pointer hover:text-orange-600">
