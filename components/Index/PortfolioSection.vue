@@ -24,9 +24,10 @@
     <!-- <div class="flex flex-col space-between"> -->
 
       <div class="relative overflow-visible">
+
         <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center">
-          <div class="rounded-full z-10 bg-orange-300 opacity-20 blur-2xl"
-          style="width: 100px; height: 100px; transform: translateY(-100px) scale(7)"></div>
+          <div class="rounded-full z-10 bg-orange-800 opacity-10 blur-2xl"
+          style="width: 100px; height: 100px; transform: translateY(-00px) scale(7)"></div>
         </div>
 
         <IndexPortoflioCarousel v-model:center-item="centerItemIndex" />
