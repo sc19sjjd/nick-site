@@ -25,3 +25,5 @@ logs
 
 # Uncompressed lcoal videos
 public/videos/uncompressed
+
+public/favicons
