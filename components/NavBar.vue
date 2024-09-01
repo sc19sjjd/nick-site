@@ -2,18 +2,18 @@
   <WrappersFullScreen class="flex justify-between pt-2 z-50
   underline-offset-2 decoration-2 font-bold">
     <div class="hover:cursor-pointer hover:text-orange-600
-    decoration-2 underline-offset-3" :class="{ 'underline': underline == 'home' }" @click="scrollTo('title')">
+    decoration-2 underline-offset-3" :class="{ 'underline': underline == 'home' }" @click="() => scrollTo('title')">
       Home
     </div>
     <div class="hover:cursor-pointer hover:text-orange-600
-    decoration-2 underline-offset-3" :class="{ 'underline': underline == 'about' }" @click="scrollTo('about')">
+    decoration-2 underline-offset-3" :class="{ 'underline': underline == 'about' }" @click="() => scrollTo('about')">
       About
     </div>
     <div class="hover:cursor-pointer hover:text-orange-600
-    decoration-2 underline-offset-3" :class="{ 'underline': underline == 'portfolio' }" @click="scrollTo('portfolio')">
+    decoration-2 underline-offset-3" :class="{ 'underline': underline == 'portfolio' }" @click="() => scrollTo('portfolio')">
       Portfolio
     </div>
-    <div class="hover:cursor-pointer hover:text-orange-600">
+    <div class="hover:cursor-pointer hover:text-orange-600" @click="() => openContactModal()">
       Contact
     </div>
   </WrappersFullScreen>
@@ -28,6 +28,13 @@
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  const openContactModal = () => {
+    const contactModal = document.getElementById('contact-modal');
+    if (contactModal) {
+      contactModal.style.display = 'block';
     }
   }
 
