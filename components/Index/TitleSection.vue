@@ -11,7 +11,7 @@
           <NavBar :underline="'home'" />
         </div>
       
-        <WrappersFullScreen class="flex-col z-20 relative">
+        <WrappersFullScreen class="flex-col z-10 relative">
           <!-- <div class="w-full h-80 sm:h-72 lg:h-64"></div> -->
           <div ref="titleContentEl" class="flex justify-center h-dvh xsm:justify-between pt-20">
             <div class="flex flex-col">
@@ -24,6 +24,13 @@
               </h3>
             </div>
           </div>
+          <!-- <div class="w-hull h-dvh flex justify-center items-center bg-white">
+            <div class="h-full bg-background rounded-full flex justify-center items-center" style="width:55rem; height:55rem;">
+              <h1 class="text-orange-700" style="font-size:32rem; letter-spacing: -2.5rem; font-family: 'Archivo black', sans-serif;">
+                NC
+              </h1>
+            </div>
+          </div> -->
           <!-- <div class="w-full h-80 sm:h-72 lg:h-64"></div> -->
         </WrappersFullScreen>
 
@@ -31,11 +38,15 @@
     </div>
 
     <!-- <div class="absolute left-0 top-0 w-full h-full flex justify-center items-end">
-      <div class="ellipse bg-background overflow-hidden"> -->
-        <!-- <video class="main-video" autoplay muted loop playsinline preload="metadata">
+      <div class="ellipse bg-background overflow-hidden" :style="{ }">
+        <div class="sticky top-0 z-50 text-white" style="transform: translateY(-4.8rem); z-index: 100">
+          <NavBar :underline="'home'" />
+        </div>
+
+        <video class="main-video" autoplay muted loop playsinline preload="metadata">
           <source src="/public/videos/pathways-transparent.mp4" type="video/mp4" />
-        </video> -->
-      <!-- </div>
+        </video>
+      </div>
     </div> -->
   </section>
 </template>
@@ -45,8 +56,12 @@
     clip-path: ellipse(160% 100% at center top);
     width: 100%;
     height: 100%;
-    min-width: 1100px;
+    /* min-width: 1100px; */
     transform: translateY(4.8rem);
+  }
+
+  .x-clip {
+    clip-path: xywh(0 0 100% 120%);
   }
 
   .main-video {
