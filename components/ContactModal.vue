@@ -1,7 +1,7 @@
 <template>
   <div id="contact-modal" ref="contactModalEl" class="w-full hidden h-dvh fixed top-0 left-0 bg-black/50" style="z-index: 1000">
     <div ref="contactModalOverlayEl" class="w-full h-full flex justify-end">
-    <div ref="contactModalContentEl" class="h-fit bg-background/90 font-black text-3xl min-w-4/12 rounded-bl-lg">
+    <div ref="contactModalContentEl" class="h-fit bg-background/90 font-black text-3xl min-w-4/12 rounded-bl-lg overflow-hidden">
       <div class="linked-in px-6 pt-4 pb-4 flex items-center relative z-10 hover:cursor-pointer">
         LinkedIn
         <img src="/public/icons/linkedin.png" alt="linkedin" class="w-8 pl-3 box-content" />
