@@ -236,5 +236,14 @@
       plantLampEl.value,
       shelvesEl.value
     );
+
+    // fix for nav bar not showing on first load, fixed by a repaint
+    if (aboutNavBarEl.value) {
+      setTimeout(() => {
+        aboutNavBarEl.value!.style.display = 'none';
+        aboutNavBarEl.value!.offsetHeight; // Trigger reflow
+        aboutNavBarEl.value!.style.display = 'block';
+      }, 100);
+    }
   });
 </script>
