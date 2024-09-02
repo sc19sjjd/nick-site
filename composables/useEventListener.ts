@@ -5,7 +5,7 @@ export const useEventListener = <T extends keyof HTMLElementEventMap>(
   event: T, 
   callback: (event: HTMLElementEventMap[T]) => void
 ) => {
-  console.log("useEventListener");
+  // console.log("useEventListener");
   onMounted(() => target.addEventListener(event, callback as EventListener));
   onUnmounted(() => target.removeEventListener(event, callback as EventListener));
 }

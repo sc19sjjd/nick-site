@@ -106,8 +106,8 @@
 
   const totalContentHeight = computed<number>(() => {
     if (!contentEl.value || !aboutNavBarEl.value) {
-      console.log(!aboutNavBarEl.value)
-      console.log(!contentEl.value)
+      // console.log(!aboutNavBarEl.value)
+      // console.log(!contentEl.value)
       return 0;
     }
 
