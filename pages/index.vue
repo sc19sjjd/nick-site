@@ -1,4 +1,7 @@
 <template>
+  
+  <ContactModal />
+
   <div class="w-full text-white">
     <!-- Page title -->
      <IndexTitleSection />

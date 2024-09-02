@@ -34,7 +34,6 @@
   const openContactModal = () => {
     const contactModal = document.getElementById('contact-modal');
     if (contactModal) {
-      // contactModal.style.display = 'block';
       contactModal.classList.remove('hidden');
       contactModal.classList.remove('modal-closed');
       contactModal.classList.add('modal-open');
