@@ -1,11 +1,11 @@
 <template>
-  <div class="w-full h-full max-w-md flex flex-col bg-gray-100/5 z-20 rounded-xl box-border 
-  border-orange-800 border-0 shadow-none shadow-black hover:shadow-lg hover:shadow-black 
-  hover:border-0 hover:border-t-orange-700 hover:border-l-orange-700 hover:cursor-pointer group transition duration-200">
+  <div class="w-full h-full max-w-md flex flex-col bg-orange-100/5 z-20 rounded-xl box-border overflow-hidden
+  border-orange-500/60 border-2 shadow-none shadow-black hover:shadow-lg hover:shadow-black hover:border-orange-700
+  hover:border-2 hover:border-t-orange-700 hover:border-l-orange-700 hover:cursor-pointer group transition duration-200">
     <div class="flex flex-col p-0">
-      <img class="rounded-xl rounded-bl-none rounded-br-none border-lightGrey group-hover:border-orange-600 border-b-0 w-full z-30" 
+      <img class="border-orange-700/60 group-hover:border-orange-600 border-b-0 w-full z-30" 
       src="/images/Environment tryout 1.png" alt="Case study 1" />
-      <div class="flex flex-col justify-center text-center">
+      <div class="flex flex-col justify-center text-center px-2">
         <h3 class="text-lg pt-3">
           Case study 1
         </h3>

@@ -37,7 +37,7 @@
 
   <WrappersContent>
     <div class="w-full flex flex-row justify-center">
-      <div class="bg-orange-100/10 z-20 p-3 flex flex-row justify-center items-center rounded-xl border-2 border-orange-700">
+      <div class="bg-orange-100/5 z-20 p-3 flex flex-row justify-center items-center rounded-xl border-2 border-orange-500/60">
 
         <div class="bar-none w-full max-w-52 h-96 overflow-y-auto flex flex-col items-center">
           <div v-for="(src, index) in sources" :key="index" class="w-full pb-2 last:pb-0 z-20">
