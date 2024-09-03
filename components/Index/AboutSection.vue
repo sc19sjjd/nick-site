@@ -243,7 +243,7 @@
         aboutNavBarEl.value!.style.display = 'none';
         aboutNavBarEl.value!.offsetHeight; // Trigger reflow
         aboutNavBarEl.value!.style.display = 'block';
-      }, 150);
+      }, 1000);
     }
   });
 </script>
