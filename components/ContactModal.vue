@@ -6,13 +6,14 @@
         LinkedIn
         <img src="/public/icons/linkedin.png" alt="linkedin" class="w-8 pl-3 box-content" />
       </div>
+
       <div class="email px-6 pt-4 pb-4 flex items-center relative z-10 hover:cursor-pointer">
         nicholasclay@gmail.com
         <img src="/public/icons/email.png" alt="email" class="w-10 pl-2 box-content" />
       </div>
 
       <div class="absolute top-0 right-0 pr-6 pt-6 z-10">
-        <div @click="closeModal" class="cursor-pointer z-30">
+        <div @click="closeModal" class="cursor-pointer z-30 opacity-60 hover:opacity-100 transition duration-300">
           <img src="/public/icons/cross-white.png" alt="close" class="w-4 box-content" />
         </div>
       </div>

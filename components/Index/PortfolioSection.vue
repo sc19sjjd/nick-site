@@ -11,6 +11,7 @@
       <h1 class="text-orange-600 text-5xl xsm:text-5xl sm:text-6xl pb-20 text-center" style="font-family: 'Archivo Black', sans-serif;">
         Portfolio
       </h1>
+      
       <div class="flex flex-col lg:flex-row justify-between items-center">
         <IndexPortoflioCaseStudyCard />
         <div class="pb-10 lg:hidden"></div>

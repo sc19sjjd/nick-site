@@ -5,7 +5,7 @@
       <div ref="seeMoreModalContentEl" class="h-fit w-10/12 bg-background/90 font-black text-3xl rounded-lg overflow-hidden relative">
 
         <div class="absolute w-full flex justify-end">
-          <div class="pr-8 pt-8 z-10">
+          <div class="pr-8 pt-8 z-20">
             <div @click="closeModal" class="cursor-pointer opacity-60 hover:opacity-100 transition duration-300">
               <img src="/public/icons/cross-white.png" alt="close" class="w-6 box-content" />
             </div>
@@ -13,48 +13,35 @@
         </div>
 
         <div class="absolute h-inherit w-full h-full flex items-center justify-between"> 
-          <div class="relative z-40 w-14 h-14 bg-background/0 rounded-full flex items-center justify-center
-          hover:cursor-pointer hover:bg-background transition duration-300 group" style="transform: rotate(180deg);">
+          <div class="relative z-20 w-14 h-14 bg-background/0 rounded-full flex items-center justify-center
+          hover:cursor-pointer hover:bg-background transition duration-300 group" style="transform: rotate(180deg);"
+          @click="() => onClickPreviousArrow()">
             <img src="/public/icons/arrow-white.png" alt="arrow" class="w-8 h-8 opacity-50 group-hover:opacity-100 transition duration-300" />
           </div>
 
-          <div class="relative z-40 w-14 h-14 bg-background/0 rounded-full flex items-center justify-center
-          hover:cursor-pointer hover:bg-background transition duration-300 group">
+          <div class="relative z-20 w-14 h-14 bg-background/0 rounded-full flex items-center justify-center
+          hover:cursor-pointer hover:bg-background transition duration-300 group" @click="() => onClickNextArrow()">
             <img src="/public/icons/arrow-white.png" alt="arrow" class="w-8 h-8 opacity-50 group-hover:opacity-100 transition duration-300" />
           </div>
         </div>
 
-        <img v-if="mainItemSource[0] === 'image'" class="w-full" :src="mainItemSource[1]" alt="test image" />
-        <iframe v-else-if="mainItemSource[0] == 'video'" src="https://drive.google.com/file/d/1UZn6_WlV3CdlbrtT7JWvjVPVmNY9PYGR/preview" 
-        width="640" height="360" allow="autoplay" allowfullscreen></iframe>
-      </div>
-
-
-      <div class="absolute top-0 right-0 -z-10 w-full h-full flex justify-center">
-        <div class="h-full w-10/12 flex items-center justify-between">
-
-          <div class="w-10 h-10 rounded-full flex items-center justify-center">
-            <img src="/public/icons/arrow-white.png" alt="arrow" class="w-8 h-8" />
-          </div>
-
-          <div class="relative z-40 w-14 h-14 bg-background opacity-50 rounded-full flex items-center justify-center
-          hover:cursor-pointer hover:opacity-100 transition duration-300">
-            <img src="/public/icons/arrow-white.png" alt="arrow" class="w-8 h-8" />
-          </div>
-
+        <div class="relative z-10">
+          <img v-if="mainItemSource[0] === 'image'" class="w-full" :src="mainItemSource[1]" alt="test image" />
+          <iframe v-else-if="mainItemSource[0] == 'video'" src="https://drive.google.com/file/d/1UZn6_WlV3CdlbrtT7JWvjVPVmNY9PYGR/preview" 
+          width="640" height="360" allow="autoplay" allowfullscreen></iframe>
         </div>
+
       </div>
-    
     </div>
   </div>
 
   <WrappersContent>
     <div class="w-full flex flex-row justify-center">
-      <div class="bg-gray-100/5 z-20 p-3 flex flex-row justify-center items-center rounded-xl border border-lightGrey">
+      <div class="bg-orange-100/10 z-20 p-3 flex flex-row justify-center items-center rounded-xl border-2 border-orange-700">
 
         <div class="bar-none w-full max-w-52 h-96 overflow-y-auto flex flex-col items-center">
           <div v-for="(src, index) in sources" :key="index" class="w-full pb-2 last:pb-0 z-20">
-            <div class="relative hover:cursor-pointer" @click="() =>onClickPreview(src)">
+            <div class="relative hover:cursor-pointer" @click="() => onClickPreview(index)">
               <div class="absolute left-0 top-0 w-full h-full z-20 hover:border-4 opacity-0 bg-grey 
               hover:border-orange-500 hover:opacity-50">
               </div>
@@ -67,6 +54,7 @@
                 </div>
                 <img class="w-full h-full object-contain" :src="sources[0][1]" alt="test video preview" />
               </div>
+
             </div>
           </div>
         </div>
@@ -125,15 +113,29 @@
     ["video", 'https://drive.google.com/file/d/1UZn6_WlV3CdlbrtT7JWvjVPVmNY9PYGR/preview']
   ]
 
-  const mainItemSource = ref<Array<string>>(sources[0]);
+  const currentSourceIndex = ref<number>(0);
 
-  const onClickPreview = (newSource: Array<string>) => {
-    mainItemSource.value = newSource;
+  const mainItemSource = computed<Array<string>>(() => sources[currentSourceIndex.value]);
+
+  const onClickPreview = (newSourceIndex: number) => {
+    currentSourceIndex.value = newSourceIndex;
   };
 
-  const onClickMain = () => {
-    openSeeMoreModal();
-  };
+  const onClickNextArrow = () => {
+    if (currentSourceIndex.value < sources.length - 1) {
+      currentSourceIndex.value += 1;
+    } else {
+      currentSourceIndex.value = 0;
+    }
+  }
+
+  const onClickPreviousArrow = () => {
+    if (currentSourceIndex.value > 0) {
+      currentSourceIndex.value -= 1;
+    } else {
+      currentSourceIndex.value = sources.length - 1;
+    }
+  }
 
   const openSeeMoreModal = () => {
     if (!seeMoreModalEl.value) {
