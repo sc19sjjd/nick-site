@@ -1,6 +1,6 @@
 <template>
   <WrappersFullScreen class="flex justify-between pt-2 z-50
-  underline-offset-2 decoration-2 font-bold">
+  underline-offset-2 decoration-2 font-bold text-lg">
     <div class="hover:cursor-pointer hover:text-orange-600
     decoration-2 underline-offset-3" :class="{ 'underline': underline == 'home' }" @click="() => scrollTo('title')">
       Home
