@@ -12,10 +12,9 @@
         </div>
       
         <WrappersFullScreen class="flex-col z-10 relative">
-          <!-- <div class="w-full h-80 sm:h-72 lg:h-64"></div> -->
-          <div ref="titleContentEl" class="flex justify-center h-dvh xsm:justify-between pt-20">
+          <div ref="titleContentEl" class="flex justify-center h-dvh xsm:justify-between items-center pb-10">
             <div class="flex flex-col">
-              <h1 class="text-orange-700 text-6xl xsm:text-7xl sm:text-8xl lg:text-9xl" style="font-family: 'Archivo black', sans-serif;">
+              <h1 class="text-orange-600 text-6xl xsm:text-7xl sm:text-8xl lg:text-9xl">
                 NICHOLAS <br> CLAY
               </h1>
               <div class="xsm:pb-1 sm:pb-2 lg:pb-2"></div>
@@ -24,14 +23,6 @@
               </h3>
             </div>
           </div>
-          <!-- <div class="w-hull h-dvh flex justify-center items-center bg-white">
-            <div class="h-full bg-background rounded-full flex justify-center items-center" style="width:55rem; height:55rem;">
-              <h1 class="text-orange-700" style="font-size:32rem; letter-spacing: -2.5rem; font-family: 'Archivo black', sans-serif;">
-                NC
-              </h1>
-            </div>
-          </div> -->
-          <!-- <div class="w-full h-80 sm:h-72 lg:h-64"></div> -->
         </WrappersFullScreen>
 
       </div>
@@ -68,6 +59,11 @@
     width: 100%;
     height: 100%;
     transform: translate(20rem, 20rem) scale(1.2);
+  }
+
+  h1 {
+    font-family: 'Archivo black', sans-serif;
+    font-size: 10rem;
   }
 </style>
 

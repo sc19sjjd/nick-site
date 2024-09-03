@@ -11,7 +11,7 @@
       <div ref="viewReferenceEl" class="w-full pt-6"></div>
 
       <div class="h-dvh text-black pb-20 pt-20" id="about">
-        <h2 class="text-orange-700 text-center text-6xl pb-20 z-10 relative" style="font-family: 'Archivo Black', sans-serif;">
+        <h2 class="text-orange-600 text-center text-6xl pb-20 z-10 relative" style="font-family: 'Archivo Black', sans-serif;">
           About me
         </h2>
 
