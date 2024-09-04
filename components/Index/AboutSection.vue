@@ -10,8 +10,8 @@
           <WrappersContent class="relative">
             <div ref="viewReferenceEl" class="w-full"></div>
 
-            <div class="text-black pb-28 pt-20 relative" id="about">
-              <h2 class="text-orange-600 text-center text-6xl pb-16 z-10 relative" style="font-family: 'Archivo Black', sans-serif;">
+            <div class="text-black pb-16 xs:pb-18 sm:pb-24 lg:pb-28 pt-12 xs:pt-14 sm:pt-16 md:pt-20 relative" id="about">
+              <h2 class="text-orange-600 text-center text-6xl pb-12 xs:pb-14 sm:pb-16 md:pb-20 z-10 relative" style="font-family: 'Archivo Black', sans-serif;">
                 About me
               </h2>
 
@@ -51,11 +51,11 @@
                 <div class="relative w-full md:w-fit flex justify-center md:items-end pt-14 md:pt-0">
                   <!-- <div class="flex items-end relative"> -->
                     <img ref="roomRenderEl" class="w-full max-w-md object-cover" src="/public/images/room-render.png" alt="room render" />
-                    <img ref="bedEl" class="bed absolute" src="/public/images/bed.png" alt="bed" />
-                    <img ref="deskEl" class="desk absolute bottom-0 left-0" src="/public/images/desk.png" alt="desk" />
-                    <img ref="chairEl" class="chair absolute bottom-0 left-0" src="/public/images/chair.png" alt="chair" />
-                    <img ref="plantLampEl" class="plant-lamp absolute bottom-0 left-0" src="/public/images/plant-lamp.png" alt="plant lamp" />
-                    <img ref="shelvesEl" class="shelves absolute bottom-0 left-0" src="/public/images/shelves.png" alt="shelves" />
+                    <img ref="bedEl" class="bed absolute hidden md:block" src="/public/images/bed.png" alt="bed" />
+                    <img ref="deskEl" class="desk absolute hidden md:block" src="/public/images/desk.png" alt="desk" />
+                    <img ref="chairEl" class="chair absolute hidden md:block" src="/public/images/chair.png" alt="chair" />
+                    <img ref="plantLampEl" class="plant-lamp absolute hidden md:block" src="/public/images/plant-lamp.png" alt="plant lamp" />
+                    <img ref="shelvesEl" class="shelves absolute hidden md:block" src="/public/images/shelves.png" alt="shelves" />
                   <!-- </div> -->
                 </div>
               </div>

@@ -7,7 +7,7 @@
 
     <div class="w-full pt-4"></div>
   <WrappersContent id="portfolio">
-    <div class="flex flex-col w-full pb-2 pt-16">
+    <div class="flex flex-col w-full pb-2 pt-10 xs:pt-12 sm:pt-14 md:pt-16">
       <h1 class="text-orange-600 text-5xl 2xs:text-5xl sm:text-6xl text-center" style="font-family: 'Archivo Black', sans-serif;">
         Portfolio
       </h1>
@@ -21,14 +21,12 @@
   </WrappersContent>
   
   
-  <div class="py-16 flex flex-col justify-between">
-    <!-- <div class="flex flex-col space-between"> -->
-
+  <div class="pb-20 pt-10 xs:pt-12 sm:pt-14 md:pt-16 flex flex-col justify-between">
       <div class="relative overflow-visible">
 
         <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center">
-          <div class="rounded-full z-10 bg-orange-800 opacity-10 blur-2xl"
-          style="width: 100px; height: 100px; transform: translateY(-00px) scale(7)"></div>
+          <!-- <div class="rounded-full z-10 bg-orange-800 opacity-10 blur-2xl"
+          style="width: 100px; height: 100px; transform: translateY(-00px) scale(7)"></div> -->
         </div>
 
         <IndexPortoflioCarousel v-model:center-item="centerItemIndex" />
@@ -42,18 +40,9 @@
       </WrappersFullScreen>
 
       <div class="relative w-full text-black shadow-background">
-        <!-- <div class="absolute top-0 left-0 w-full h-6 bg-background -z-10"></div> -->
-
-        <!-- <div class="w-full flex justify-center">
-          <Button>See more</Button>
-        </div> -->
-          
-        <!-- <div class="pb-6"></div> -->
-
         <IndexPortoflioSeeMore  />
       </div>
 
-    <!-- </div> -->
   </div>
   </section>
 </template>
