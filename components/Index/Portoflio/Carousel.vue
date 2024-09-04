@@ -15,7 +15,7 @@
     <div class="w-full flex flex-row justify-center">
       <ul ref="scrollContainerEl" class="list-none whitespace-nowrap overflow-y-visible overflow-x-scroll snap-x snap-mandatory scroll-smooth"
       :style="{ width: `${scrollContainerMaxWidth}rem`, height: `${containerHeight}rem` }">
-      
+
         <div class="w-full" :style="{ height: `${yPadding}rem` }"></div>
         <div class="inline-block" :style="{width: `${edgeWidth}rem`}"></div>
 
@@ -23,7 +23,7 @@
           <img ref="listItemImagesEl" class="rounded-md w-full" src="/images/Environment tryout 1.png" alt="Case study 1" 
           :style="{ width: `${listItemWidth}rem` }" />
           <div ref="listItemOverlaysEl" class="absolute top-0 left-0 w-full h-full z-40 bg-background opacity-0"></div>
-          <div class="absolute top-0 left-0 w-full h-full z-50 border-red-500 border-2"></div>
+          <!-- <div class="absolute top-0 left-0 w-full h-full z-50 border-red-500 border-2"></div> -->
         </li>
 
         <div class="inline-block" :style="{width: `${edgeWidth}rem`}"></div>
