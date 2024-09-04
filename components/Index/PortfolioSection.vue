@@ -7,8 +7,8 @@
 
     <div class="w-full pt-4"></div>
   <WrappersContent id="portfolio">
-    <div class="flex flex-col w-full pb-2 pt-20">
-      <h1 class="text-orange-600 text-5xl xsm:text-5xl sm:text-6xl text-center" style="font-family: 'Archivo Black', sans-serif;">
+    <div class="flex flex-col w-full pb-2 pt-16">
+      <h1 class="text-orange-600 text-5xl 2xs:text-5xl sm:text-6xl text-center" style="font-family: 'Archivo Black', sans-serif;">
         Portfolio
       </h1>
 
@@ -21,7 +21,7 @@
   </WrappersContent>
   
   
-  <div class="py-20 flex flex-col justify-between">
+  <div class="py-16 flex flex-col justify-between">
     <!-- <div class="flex flex-col space-between"> -->
 
       <div class="relative overflow-visible">
