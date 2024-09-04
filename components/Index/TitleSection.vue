@@ -1,8 +1,5 @@
 <template>
   <section class="relative z-50 justify-center bg-background" id="title">
-    <!-- <div class="sticky top-0 -z-10">
-      <NavBar />
-    </div> -->
 
     <div class="ellipse bg-background" :style="{ height: ellipseHeight }">
       <div ref="outerDivEl" class="" :style="{ transform: 'translateY(-4.8rem)', height: outerDivHeight }">
@@ -12,14 +9,14 @@
         </div>
       
         <WrappersFullScreen class="flex-col z-10 relative">
-          <div ref="titleContentEl" class="flex justify-center h-dvh xsm:justify-between items-center pb-10">
+          <div ref="titleContentEl" class="flex justify-center h-dvh xs:justify-between items-center pb-24 xs:pb-20 sm:pb-16  md:pb-10">
             <div class="flex flex-col">
-              <h1 class="text-orange-600 text-6xl xsm:text-7xl sm:text-8xl lg:text-9xl">
+              <h1 class="text-orange-600 text-6xl xs:text-7.5xl sm:text-8xl md:text-9xl lg:text-10xl">
                 NICHOLAS <br> CLAY
               </h1>
-              <div class="xsm:pb-1 sm:pb-2 lg:pb-2"></div>
-              <h3 class="text-xl xsm:text-xl sm:text-2xl lg:text-3xl pl-1 xsm:pl-2 lg:pl-3">
-                3D modelling <br class="hidden xsm:block"> and <br class="hidden xsm:block"> animation
+              <div class="xs:pb-1 sm:pb-2 lg:pb-2"></div>
+              <h3 class="text-xl sm:text-2xl lg:text-3xl pl-1 xs:pl-2 lg:pl-3">
+                3D modelling and animation
               </h3>
             </div>
           </div>
@@ -44,11 +41,22 @@
 
 <style scoped>
   .ellipse {
-    clip-path: ellipse(160% 100% at center top);
+    clip-path: ellipse(240% 100% at center top);
     width: 100%;
     height: 100%;
-    /* min-width: 1100px; */
     transform: translateY(4.8rem);
+  }
+
+  @media (min-width: 480px) {
+    .ellipse {
+      clip-path: ellipse(200% 100% at center top);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .ellipse {
+      clip-path: ellipse(160% 100% at center top);
+    }
   }
 
   .x-clip {
@@ -63,7 +71,6 @@
 
   h1 {
     font-family: 'Archivo black', sans-serif;
-    font-size: 10rem;
   }
 </style>
 
