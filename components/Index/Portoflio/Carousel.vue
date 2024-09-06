@@ -1,17 +1,6 @@
 <template>
   <div class="w-full relative">
 
-    <!-- <div class="absolute -z-10 top-0 left-0 w-full h-full flex justify-between items-center px-2">
-      <div class="w-14 h-14 z-20 rounded-full flex justify-center items-center opacity-30 transform rotate-180 hover:opacity-100 hover:cursor-pointer 
-        hover:bg-background hover:shadow-2xl shadow-black transition duration-500">
-        <img src="/public/icons/arrow-white.png" alt="arrow" class="w-8 h-8" />
-      </div>
-      <div class="w-14 h-14 z-20 rounded-full flex justify-center items-center opacity-30 hover:opacity-100 hover:cursor-pointer 
-        hover:bg-background hover:shadow-2xl shadow-2xl shadow-black transition duration-500">
-        <img src="/public/icons/arrow-white.png" alt="arrow" class="w-8 h-8" />
-      </div>
-    </div> -->
-
     <div class="w-full flex flex-row justify-center">
       <ul ref="scrollContainerEl" class="list-none whitespace-nowrap overflow-y-visible overflow-x-scroll snap-x snap-mandatory scroll-smooth"
       :style="{ width: `${scrollContainerMaxWidth}rem`, height: `${containerHeight}rem` }">
@@ -19,7 +8,7 @@
         <div class="w-full" :style="{ height: `${yPadding}rem` }"></div>
         <div class="inline-block" :style="{width: `${edgeWidth}rem`}"></div>
 
-        <li v-for="i in Array(8).keys()" key="i" ref="listItemsEl" class="overflow-y-visible relative inline-block snap-center">
+        <li v-for="i in Array(8).keys()" key="i" ref="listItemsEl" :id="`list-item${i}`" class="overflow-y-visible relative inline-block snap-center">
           <img ref="listItemImagesEl" class="rounded-md w-full" src="/images/Environment tryout 1.png" alt="Case study 1" 
           :style="{ width: `${listItemWidth}rem` }" />
           <div ref="listItemOverlaysEl" class="absolute top-0 left-0 w-full h-full z-40 bg-background opacity-0"></div>
@@ -30,8 +19,33 @@
       </ul>
     </div>
 
+    <div class="w-full flex justify-center gap-8 pt-4">
+
+      <div class="flex items-center justify-center w-12 h-12 rounded-full border-2 border-lightGrey/60 
+      hover:border-orange-500/70 hover:cursor-pointer transition duration-300 group" @click="() => onClickPreviousArrow()"
+      :class="{ 'disabled': currentCenterItemIndex == 0 }">
+        <img src="/public/icons/arrow-white.png" alt="arrow" class="w-8 h-8 opacity-50 group-hover:opacity-80 transition duration-300" 
+        style="transform: rotate(180deg);" />
+      </div>
+
+      <div class="flex items-center justify-center w-12 h-12 rounded-full border-2 border-lightGrey/60 
+      hover:border-orange-500/70 hover:cursor-pointer transition duration-300 group" @click="() => onClickNextArrow()"
+      :class="{ 'disabled': currentCenterItemIndex == 8 }">
+        <img src="/public/icons/arrow-white.png" alt="arrow" class="w-8 h-8 opacity-50 group-hover:opacity-80 transition duration-300" />
+      </div>
+      
+    </div>
+
   </div>
 </template>
+
+<style scoped>
+  .disabled {
+    opacity: 0.7;
+    cursor: initial;
+    pointer-events: none;
+  }
+</style>
 
 <script setup lang="ts">
   import type { NullableHTMLElement } from '~/types';
@@ -198,6 +212,25 @@
     const scrollLeft = scrollContainerEl.value!.scrollLeft / 16;
 
     currentCenterItemIndex.value = Math.round((scrollLeft - edgeWidth.value + listItemWidth.value * 1.5) / (listItemWidth.value) + 0.015);
+  }
+
+  const scrollElementToCenter = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      scrollContainerEl.value!.scrollTo({ left: element.offsetLeft - element.clientWidth * 2, behavior: 'smooth' });
+    }
+  }
+
+  const onClickPreviousArrow = () => {
+    if (currentCenterItemIndex.value > 0) {
+      scrollElementToCenter(`list-item${currentCenterItemIndex.value - 1}`);
+    }
+  }
+
+  const onClickNextArrow = () => {
+    if (currentCenterItemIndex.value < 8) {
+      scrollElementToCenter(`list-item${currentCenterItemIndex.value + 1}`);
+    }
   }
 
   onMounted(() => {

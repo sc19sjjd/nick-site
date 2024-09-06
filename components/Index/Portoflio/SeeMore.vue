@@ -6,22 +6,22 @@
 
         <div class="absolute w-full flex justify-end">
           <div class="pr-8 pt-8 z-20">
-            <div @click="closeModal" class="cursor-pointer opacity-60 hover:opacity-100 transition duration-300">
+            <div @click="closeModal" class="cursor-pointer opacity-60 hover:opacity-80 transition duration-300">
               <img src="/public/icons/cross-white.png" alt="close" class="w-6 box-content" />
             </div>
           </div>
         </div>
 
         <div class="absolute h-inherit w-full h-full flex items-center justify-between"> 
-          <div class="relative z-20 w-14 h-14 bg-background/0 rounded-full flex items-center justify-center
-          hover:cursor-pointer hover:bg-background transition duration-300 group" style="transform: rotate(180deg);"
+          <div class="relative z-20 w-12 h-12 bg-background/0 border-2 border-lightGrey/60 rounded-full flex items-center justify-center
+          hover:cursor-pointer hover:bg-background hover:border-orange-500/70 transition duration-300 group" style="transform: rotate(180deg);"
           @click="() => onClickPreviousArrow()">
-            <img src="/public/icons/arrow-white.png" alt="arrow" class="w-8 h-8 opacity-50 group-hover:opacity-100 transition duration-300" />
+            <img src="/public/icons/arrow-white.png" alt="arrow" class="w-8 h-8 opacity-50 group-hover:opacity-80 transition duration-300" />
           </div>
 
-          <div class="relative z-20 w-14 h-14 bg-background/0 rounded-full flex items-center justify-center
-          hover:cursor-pointer hover:bg-background transition duration-300 group" @click="() => onClickNextArrow()">
-            <img src="/public/icons/arrow-white.png" alt="arrow" class="w-8 h-8 opacity-50 group-hover:opacity-100 transition duration-300" />
+          <div class="relative z-20 w-12 h-12 bg-background/0 border-2 border-lightGrey/60 rounded-full flex items-center justify-center
+          hover:cursor-pointer hover:bg-background hover:border-orange-500/70 transition duration-300 group" @click="() => onClickNextArrow()">
+            <img src="/public/icons/arrow-white.png" alt="arrow" class="w-8 h-8 opacity-50 group-hover:opacity-80 transition duration-300" />
           </div>
         </div>
 
@@ -38,10 +38,10 @@
   <WrappersContent>
     <div class="w-full flex flex-row justify-center">
       <div class="bg-orange-100/5 w-[95%] lg:w-auto object-contain z-20 p-3 flex gap-3 flex-col lg:flex-row justify-center 
-      items-center rounded-xl border-2 border-orange-500/60">
+      items-center rounded-xl border-2 border-orange-500/70">
 
-        <div class="bar-none max-h-[27rem] max-w-4xl w-full lg:w-auto overflow-x-auto object-contain lg:overflow-y-auto gap-2 shrink-1 
-        lg:shrink-0 flex flex-row lg:flex-col items-center">
+        <div class="max-h-[27rem] max-w-4xl w-full lg:w-auto overflow-x-auto object-contain lg:overflow-y-auto gap-2 shrink-1 
+        lg:shrink-0 flex flex-row lg:flex-col items-center pb-2 lg:pb-0 lg:pr-2">
           <div v-for="(src, index) in sources" :key="index" class="w-36 xs:w-44 sm:w-48 md:w-52 shrink-0 lg:pr-0 z-20 relative
           hover:cursor-pointer" @click="() => onClickPreview(index)">
 

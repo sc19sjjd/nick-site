@@ -33,7 +33,7 @@
         </div>
 
         <WrappersFullScreen>
-          <div class="w-full z-20 flex-col items-center text-center pt-4 sm:pt-6 md:pt-8 pb-6 sm:pb-8 md:pb-10">
+          <div class="w-full z-20 flex-col items-center text-center pt-4 sm:pt-6 md:pt-4 pb-6 sm:pb-8 md:pb-10">
             <h3 class="text-lg sm:text-xl">{{ titles[centerItemIndex] }} {{ centerItemIndex }}</h3>
             <p class="text-sm font-light">{{ descriptions[centerItemIndex] }} {{ centerItemIndex }}</p>
           </div>
