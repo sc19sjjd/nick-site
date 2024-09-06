@@ -28,7 +28,7 @@
         <div class="relative z-10">
           <img v-if="mainItemSource[0] === 'image'" class="w-full object-scale-down" :src="mainItemSource[1]" alt="test image" />
           <iframe v-else-if="mainItemSource[0] == 'video'" src="https://drive.google.com/file/d/1UZn6_WlV3CdlbrtT7JWvjVPVmNY9PYGR/preview" 
-          width="640" height="360" allow="autoplay" allowfullscreen></iframe>
+          :width="modalVideoWidth" :height="modalVideoHeight" allow="autoplay" allowfullscreen></iframe>
         </div>
 
       </div>
@@ -37,10 +37,10 @@
 
   <WrappersContent>
     <div class="w-full flex flex-row justify-center">
-      <div class="bg-orange-100/5 w-[95%] lg:w-auto object-contain z-20 p-3 flex gap-3 flex-col lg:flex-row justify-center 
+      <div ref="mainContentEl" class="bg-orange-100/5 w-[95%] lg:w-full object-contain z-20 p-3 flex gap-3 flex-col lg:flex-row justify-center 
       items-center rounded-xl border-2 border-orange-500/70">
 
-        <div class="content-box max-h-[27rem] max-w-4xl w-full lg:w-auto overflow-x-auto lg:overflow-y-auto gap-2 shrink-0
+        <div ref="previewScrollBoxEl" class="content-box max-h-[27rem] max-w-4xl w-full lg:w-auto overflow-x-auto lg:overflow-y-auto gap-2 shrink-0
         lg:shrink-0 flex flex-row lg:flex-col items-center pb-2 lg:pb-0 lg:pr-2">
           <div v-for="(src, index) in sources" :key="index" class="w-36 xs:w-44 sm:w-48 md:w-52 shrink-0 lg:pr-0 z-20 relative
           hover:cursor-pointer" @click="() => onClickPreview(index)">
@@ -49,22 +49,26 @@
             hover:border-orange-500 hover:opacity-50">
             </div>
 
-            <img v-if="src[0] === 'image'" class="w-full h-full object-contain" :src="src[1]" alt="test image" />
+            <img v-if="src[0] === 'image'" class="w-full h-full" :src="src[1]" alt="test image" />
 
             <div v-else-if="src[0] == 'video'" class="w-full h-full relative">
               <div class="absolute top-0 left-0 w-full h-full z-10 opacity-50 flex justify-center items-center">
                 <img class="w-1/3" src="/public/icons/play-button-white.png" alt="play button" />
               </div>
-              <img class="w-full h-full object-contain" :src="sources[0][1]" alt="test video preview" />
+              <img class="w-full h-full" :src="sources[0][1]" alt="test video preview" />
             </div>
 
           </div>
         </div>
 
-        <div class="max-w-4xl object-contain z-20 hover:cursor-pointer relative" @click="() => openSeeMoreModal()">
+        <div class="max-w-4xl z-20 hover:cursor-pointer w-full relative" @click="() => openSeeMoreModal()">
           <img v-if="mainItemSource[0] === 'image'" class="w-full object-scale-down" :src="mainItemSource[1]" alt="test image" />
+          <div v-else-if="mainItemSource[0] == 'video'" class="w-full flex justify-center items-center">
+            <iframe src="https://drive.google.com/file/d/1UZn6_WlV3CdlbrtT7JWvjVPVmNY9PYGR/preview" 
+            :width="videoWidth" :height="videoHeight" allow="autoplay" allowfullscreen></iframe>
+          </div>
           <iframe v-else-if="mainItemSource[0] == 'video'" src="https://drive.google.com/file/d/1UZn6_WlV3CdlbrtT7JWvjVPVmNY9PYGR/preview" 
-          width="640" height="360" allow="autoplay" allowfullscreen></iframe>
+          :width="videoWidth" :height="videoHeight" allow="autoplay" allowfullscreen></iframe>
         </div>
       </div>
     </div>
@@ -117,6 +121,9 @@
   const seeMoreModalEl = ref<NullableHTMLElement>(null);
   const seeMoreModalOverlayEl = ref<NullableHTMLElement>(null);
   const seeMoreModalContentEl = ref<NullableHTMLElement>(null);
+
+  const mainContentEl = ref<NullableHTMLElement>(null);
+  const previewScrollBoxEl = ref<NullableHTMLElement>(null);
 
   const sources = [
     ["image", '/images/Environment tryout 1.png'],
@@ -176,7 +183,46 @@
     }
   }
 
+  const videoWidth = ref<number>(0);
+  const videoHeight = computed<number>(() => { return videoWidth.value * 9/16; });
+
+  const updateVideoWidth = () => {
+    if (!mainContentEl.value || !previewScrollBoxEl.value) {
+      return;
+    }
+
+    let paddingOffset = (mainContentEl.value!.getBoundingClientRect().width - mainContentEl.value!.clientWidth) * 16;
+
+    if (window.innerWidth < 1024) {
+      videoWidth.value = mainContentEl.value!.clientWidth - paddingOffset;
+    } else {
+      videoWidth.value = mainContentEl.value!.clientWidth - previewScrollBoxEl.value!.clientWidth - paddingOffset;
+    }
+  }
+
+  const modalVideoWidth = ref<number>(0);
+  const modalVideoHeight = computed<number>(() => { return modalVideoWidth.value * 9/16; });
+
+  const updateModalVideoWidth = () => {
+    if (!seeMoreModalContentEl.value) {
+      return;
+    }
+
+    modalVideoWidth.value = seeMoreModalContentEl.value!.clientWidth;
+  }
+
+  let videoResizeObserver: ResizeObserver;
+  let modalVideoResizeObserver: ResizeObserver;
+
   onMounted(() => {
     window.addEventListener('click', onWindowClick);
+
+    updateVideoWidth();
+    videoResizeObserver = new ResizeObserver(updateVideoWidth);
+    videoResizeObserver.observe(mainContentEl.value!);
+
+    updateModalVideoWidth();
+    modalVideoResizeObserver = new ResizeObserver(updateModalVideoWidth);
+    modalVideoResizeObserver.observe(seeMoreModalContentEl.value!);
   });
 </script>
