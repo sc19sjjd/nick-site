@@ -30,10 +30,10 @@
 
       <div class="flex items-center justify-center w-12 h-12 rounded-full border-2 border-lightGrey/60 
       hover:border-orange-500/70 hover:cursor-pointer transition duration-300 group" @click="() => onClickNextArrow()"
-      :class="{ 'disabled': currentCenterItemIndex == 8 }">
+      :class="{ 'disabled': currentCenterItemIndex == 7 }">
         <img src="/public/icons/arrow-white.png" alt="arrow" class="w-8 h-8 opacity-50 group-hover:opacity-80 transition duration-300" />
       </div>
-      
+
     </div>
 
   </div>
