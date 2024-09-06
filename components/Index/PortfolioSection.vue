@@ -22,26 +22,31 @@
     
     
     <div class="pb-10 xs:pb-12 sm:pb-14 md:pb-16 pt-10 xs:pt-12 sm:pt-14 md:pt-16 flex flex-col justify-between">
-        <div class="relative overflow-visible">
+      
+      <div class="relative overflow-visible">
 
           <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center">
             <!-- <div class="rounded-full z-10 bg-orange-800 opacity-10 blur-2xl"
             style="width: 100px; height: 100px; transform: translateY(-00px) scale(7)"></div> -->
           </div>
 
-          <IndexPortoflioCarousel v-model:center-item="centerItemIndex" />
+          <!-- <WrappersFullScreen>
+            <IndexPortoflioCarousel v-model:center-item="centerItemIndex" />
+          </WrappersFullScreen> -->
         </div>
 
         <WrappersFullScreen>
-          <div class="w-full z-20 flex-col items-center text-center pt-4 sm:pt-6 md:pt-4 pb-6 sm:pb-8 md:pb-10">
-            <h3 class="text-lg sm:text-xl">{{ titles[centerItemIndex] }} {{ centerItemIndex }}</h3>
-            <p class="text-sm font-light">{{ descriptions[centerItemIndex] }} {{ centerItemIndex }}</p>
+          <div class="flex flex-col w-full justify-center">
+            <IndexPortoflioCarousel v-model:center-item="centerItemIndex" />
+
+            <div class="w-full z-20 flex-col items-center text-center pt-4 sm:pt-6 md:pt-4 pb-6 sm:pb-8 md:pb-10">
+              <h3 class="text-lg sm:text-xl">{{ titles[centerItemIndex] }} {{ centerItemIndex }}</h3>
+              <p class="text-sm font-light">{{ descriptions[centerItemIndex] }} {{ centerItemIndex }}</p>
+            </div>
           </div>
         </WrappersFullScreen>
 
-        <div class="relative w-full text-black shadow-background">
-          <IndexPortoflioSeeMore  />
-        </div>
+        <IndexPortoflioSeeMore  />
 
     </div>
   </section>

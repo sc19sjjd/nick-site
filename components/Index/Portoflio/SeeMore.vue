@@ -41,7 +41,7 @@
       items-center rounded-xl border-2 border-orange-500/70">
 
         <div class="content-box max-h-[27rem] max-w-4xl w-full lg:w-auto overflow-x-auto lg:overflow-y-auto gap-2 shrink-0
-        lg:shrink-0 flex flex-row lg:flex-col items-center pb-3 lg:pb-0 lg:pr-3">
+        lg:shrink-0 flex flex-row lg:flex-col items-center pb-2 lg:pb-0 lg:pr-2">
           <div v-for="(src, index) in sources" :key="index" class="w-36 xs:w-44 sm:w-48 md:w-52 shrink-0 lg:pr-0 z-20 relative
           hover:cursor-pointer" @click="() => onClickPreview(index)">
 

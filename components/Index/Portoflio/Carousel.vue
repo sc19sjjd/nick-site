@@ -1,7 +1,7 @@
 <template>
-  <div class="w-full relative">
+  <div class="relative">
 
-    <div class="w-full flex flex-row justify-center">
+    <div class="flex flex-row justify-center">
       <ul ref="scrollContainerEl" class="list-none whitespace-nowrap overflow-y-visible overflow-x-scroll snap-x snap-mandatory scroll-smooth"
       :style="{ width: `${scrollContainerMaxWidth}rem`, height: `${containerHeight}rem` }">
 
@@ -12,6 +12,7 @@
           <img ref="listItemImagesEl" class="rounded-md w-full" src="/images/Environment tryout 1.png" alt="Case study 1" 
           :style="{ width: `${listItemWidth}rem` }" />
           <div ref="listItemOverlaysEl" class="absolute top-0 left-0 w-full h-full z-40 bg-background opacity-0"></div>
+          <!-- Debug li outline -->
           <!-- <div class="absolute top-0 left-0 w-full h-full z-50 border-red-500 border-2"></div> -->
         </li>
 
@@ -216,8 +217,13 @@
 
   const scrollElementToCenter = (id: string) => {
     const element = document.getElementById(id);
+    console.log(element?.offsetLeft);
+    console.log(scrollContainerEl.value!.offsetLeft);
     if (element) {
-      scrollContainerEl.value!.scrollTo({ left: element.offsetLeft - element.clientWidth * 2, behavior: 'smooth' });
+      let left = element.offsetLeft + element.clientWidth - scrollContainerEl.value!.clientWidth / 2 - scrollContainerEl.value!.offsetLeft;
+      // let left = element.offsetLeft - element.clientWidth * 1.5 - scrollContainerEl.value!.offsetLeft;
+      console.log(left);
+      scrollContainerEl.value!.scrollTo({ left: left, behavior: 'smooth' });
     }
   }
 
