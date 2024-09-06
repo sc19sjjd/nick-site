@@ -1,5 +1,5 @@
 <template>
-  <section class="relative z-50 justify-center bg-background" id="title">
+  <section class="relative z-[300] justify-center bg-background" id="title">
 
     <div class="ellipse bg-background" :style="{ height: ellipseHeight }">
       <div ref="outerDivEl" class="" :style="{ transform: 'translateY(-4.8rem)', height: outerDivHeight }">

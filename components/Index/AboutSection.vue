@@ -1,5 +1,5 @@
 <template>
-  <section id="about-section" class="bg-orange-100 relative z-40">
+  <section id="about-section" class="bg-orange-100 relative z-[200]">
     <div ref="outerDivEl" class="clip-path bg-orange-100" :style="{ transform: 'translateY(3rem)', height: outerDivHeight }">
       <div ref="innerDivEl" class="" :style="{ height: innerDivHeight }">
         <div ref="aboutNavBarEl" class="sticky top-0 z-40 text-black" style="transform: translateY(-3.03rem)">
@@ -49,7 +49,7 @@
                   </p>
                 </div>
 
-                <div class="relative w-full md:w-fit flex justify-center shrink-0 md:items-end pt-14 md:pt-0">
+                <div class="relative w-full md:w-fit flex justify-center shrink-0 md:items-end pt-8 sm:pt-10 md:pt-0">
                   <img ref="roomRenderEl" class="w-full max-w-sm lg:max-w-md object-cover" src="/public/images/room-render.png" alt="room render" />
                   <img ref="bedEl" class="bed absolute hidden md:block" src="/public/images/bed.png" alt="bed" />
                   <img ref="deskEl" class="desk absolute hidden md:block" src="/public/images/desk.png" alt="desk" />
@@ -146,8 +146,6 @@
   const totalContentHeight = ref<number>(0);
   
   const updateTotalContentHeight = () => {
-    console.log("getting total content height");
-
     if (!contentEl.value || !aboutNavBarEl.value) {
       totalContentHeight.value = 0;
     }
@@ -157,8 +155,6 @@
   };
 
   const outerDivHeight = computed<string>(() => {
-    console.log("getting outer div height");
-
     if (totalContentHeight.value == 0) {
       return "100%";
     } else {
@@ -167,8 +163,6 @@
   });
 
   const innerDivHeight = computed<string>(() => {
-    console.log("getting inner div height");
-
     if (totalContentHeight.value == 0) {
       return "100%";
     } else {
