@@ -40,8 +40,8 @@
       <div class="bg-orange-100/5 w-[95%] lg:w-auto object-contain z-20 p-3 flex gap-3 flex-col lg:flex-row justify-center 
       items-center rounded-xl border-2 border-orange-500/70">
 
-        <div class="max-h-[27rem] max-w-4xl w-full lg:w-auto overflow-x-auto object-contain lg:overflow-y-auto gap-2 shrink-1 
-        lg:shrink-0 flex flex-row lg:flex-col items-center pb-2 lg:pb-0 lg:pr-2">
+        <div class="content-box max-h-[27rem] max-w-4xl w-full lg:w-auto overflow-x-auto lg:overflow-y-auto gap-2 shrink-0
+        lg:shrink-0 flex flex-row lg:flex-col items-center pb-3 lg:pb-0 lg:pr-3">
           <div v-for="(src, index) in sources" :key="index" class="w-36 xs:w-44 sm:w-48 md:w-52 shrink-0 lg:pr-0 z-20 relative
           hover:cursor-pointer" @click="() => onClickPreview(index)">
 
@@ -72,8 +72,22 @@
 </template>
 
 <style scoped>
-  .bar-none {
-    scrollbar-width: none;
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #353535;
+    border-radius: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #838383;
   }
 
   .modal-closed {
