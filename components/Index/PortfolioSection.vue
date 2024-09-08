@@ -37,7 +37,7 @@
 
         <WrappersFullScreen>
           <div class="flex flex-col w-full justify-center">
-            <IndexPortoflioCarousel v-model:center-item="centerItemIndex" />
+            <IndexPortoflioCarousel v-model:center-item="centerItemIndex" :data="portfolioDataPreviews" />
 
             <div class="w-full z-20 flex-col items-center text-center pt-4 sm:pt-6 md:pt-4 pb-6 sm:pb-8 md:pb-10">
               <h3 class="text-lg sm:text-xl">{{ titles[centerItemIndex] }} {{ centerItemIndex }}</h3>
@@ -46,7 +46,7 @@
           </div>
         </WrappersFullScreen>
 
-        <IndexPortoflioSeeMore  />
+        <IndexPortoflioSeeMore :data="portfolioData[centerItemIndex]" />
 
     </div>
   </section>
@@ -65,5 +65,26 @@
 
   const titles = Array(8).fill('3D Environments');
   const descriptions = Array(8).fill("Done in blender with after effects and 3ds max");
+
+  const sources = [
+    { type: "image", src: '/images/Environment tryout 1.png' },
+    { type: "image", src: '/images/Environment tryout 5.png' },
+    { type: "image", src: '/images/Environment tryout 6.png' },
+    { type: "image", src: '/images/Environment tryout container 1.png' },
+    { type: "image", src: '/images/Environment tryout container Yellow.png' },
+    { type: "video", src: 'https://drive.google.com/file/d/1UZn6_WlV3CdlbrtT7JWvjVPVmNY9PYGR/preview' },
+  ];
+
+  const portfolioData = [
+    sources,
+    [...sources.slice(1, sources.length), sources[0]],
+    [...sources.slice(2, sources.length), ...sources.slice(0, 2)], 
+    [...sources.slice(3, sources.length), ...sources.slice(0, 3)],
+    [...sources.slice(4, sources.length), ...sources.slice(0, 4)],
+    sources,
+    [...sources.slice(1, sources.length), sources[0]],
+  ];
+
+  const portfolioDataPreviews = portfolioData.map((d) => { return d[0]; });
 
 </script>

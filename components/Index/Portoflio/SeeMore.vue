@@ -26,8 +26,8 @@
         </div>
 
         <div class="relative z-10">
-          <img v-if="mainItemSource[0] === 'image'" class="w-full object-scale-down" :src="mainItemSource[1]" alt="test image" />
-          <iframe v-else-if="mainItemSource[0] == 'video'" src="https://drive.google.com/file/d/1UZn6_WlV3CdlbrtT7JWvjVPVmNY9PYGR/preview" 
+          <img v-if="mainItemSource.type === 'image'" class="w-full object-scale-down" :src="mainItemSource.src" alt="test image" />
+          <iframe v-else-if="mainItemSource.type == 'video'" :src="mainItemSource.src"
           :width="modalVideoWidth" :height="modalVideoHeight" allow="autoplay" allowfullscreen></iframe>
         </div>
 
@@ -42,33 +42,31 @@
 
         <div ref="previewScrollBoxEl" class="content-box max-h-[27rem] max-w-4xl w-full lg:w-auto overflow-x-auto lg:overflow-y-auto gap-2 shrink-0
         lg:shrink-0 flex flex-row lg:flex-col items-center pb-2 lg:pb-0 lg:pr-2">
-          <div v-for="(src, index) in sources" :key="index" class="w-36 xs:w-44 sm:w-48 md:w-52 shrink-0 lg:pr-0 z-20 relative
+          <div v-for="(src, index) in props.data" :key="index" class="w-36 xs:w-44 sm:w-48 md:w-52 shrink-0 lg:pr-0 z-20 relative
           hover:cursor-pointer" @click="() => onClickPreview(index)">
 
             <div class="absolute left-0 top-0 w-full h-full z-20 hover:border-2 opacity-0 bg-grey 
             hover:border-orange-500 hover:opacity-50">
             </div>
 
-            <img v-if="src[0] === 'image'" class="w-full h-full" :src="src[1]" alt="test image" />
+            <img v-if="src.type === 'image'" class="w-full h-full" :src="src.src" alt="test image" />
 
-            <div v-else-if="src[0] == 'video'" class="w-full h-full relative">
+            <div v-else-if="src.type == 'video'" class="w-full h-full relative">
               <div class="absolute top-0 left-0 w-full h-full z-10 opacity-50 flex justify-center items-center">
                 <img class="w-1/3" src="/public/icons/play-button-white.png" alt="play button" />
               </div>
-              <img class="w-full h-full" :src="sources[0][1]" alt="test video preview" />
+              <img class="w-full h-full" :src="props.data[0].src" alt="test video preview" />
             </div>
 
           </div>
         </div>
 
         <div class="max-w-4xl z-20 hover:cursor-pointer w-full relative" @click="() => openSeeMoreModal()">
-          <img v-if="mainItemSource[0] === 'image'" class="w-full object-scale-down" :src="mainItemSource[1]" alt="test image" />
-          <div v-else-if="mainItemSource[0] == 'video'" class="w-full flex justify-center items-center">
-            <iframe src="https://drive.google.com/file/d/1UZn6_WlV3CdlbrtT7JWvjVPVmNY9PYGR/preview" 
+          <img v-if="mainItemSource.type === 'image'" class="w-full object-scale-down" :src="mainItemSource.src" alt="test image" />
+          <div v-else-if="mainItemSource.type == 'video'" class="w-full flex justify-center items-center">
+            <iframe :src="mainItemSource.src"
             :width="videoWidth" :height="videoHeight" allow="autoplay" allowfullscreen></iframe>
           </div>
-          <iframe v-else-if="mainItemSource[0] == 'video'" src="https://drive.google.com/file/d/1UZn6_WlV3CdlbrtT7JWvjVPVmNY9PYGR/preview" 
-          :width="videoWidth" :height="videoHeight" allow="autoplay" allowfullscreen></iframe>
         </div>
       </div>
     </div>
@@ -116,7 +114,17 @@
 </style>
 
 <script setup lang="ts">
-  import type { NullableHTMLElement } from '~/types';
+  import type { NullableHTMLElement, PortfolioSource } from '~/types';
+
+  const props = defineProps<{
+    data: Array<PortfolioSource>
+  }>();
+
+  const dataGetter = computed(() => props.data);
+
+  watch(dataGetter, (newData, oldData) => {
+    currentSourceIndex.value = 0;
+  });
 
   const seeMoreModalEl = ref<NullableHTMLElement>(null);
   const seeMoreModalOverlayEl = ref<NullableHTMLElement>(null);
@@ -125,25 +133,16 @@
   const mainContentEl = ref<NullableHTMLElement>(null);
   const previewScrollBoxEl = ref<NullableHTMLElement>(null);
 
-  const sources = [
-    ["image", '/images/Environment tryout 1.png'],
-    ["image", '/images/Environment tryout 5.png'],
-    ["image", '/images/Environment tryout 6.png'],
-    ["image", '/images/Environment tryout container 1.png'],
-    ["image", '/images/Environment tryout container Yellow.png'],
-    ["video", 'https://drive.google.com/file/d/1UZn6_WlV3CdlbrtT7JWvjVPVmNY9PYGR/preview']
-  ]
-
   const currentSourceIndex = ref<number>(0);
 
-  const mainItemSource = computed<Array<string>>(() => sources[currentSourceIndex.value]);
+  const mainItemSource = computed<PortfolioSource>(() => props.data[currentSourceIndex.value]);
 
   const onClickPreview = (newSourceIndex: number) => {
     currentSourceIndex.value = newSourceIndex;
   };
 
   const onClickNextArrow = () => {
-    if (currentSourceIndex.value < sources.length - 1) {
+    if (currentSourceIndex.value < props.data.length - 1) {
       currentSourceIndex.value += 1;
     } else {
       currentSourceIndex.value = 0;
@@ -154,7 +153,7 @@
     if (currentSourceIndex.value > 0) {
       currentSourceIndex.value -= 1;
     } else {
-      currentSourceIndex.value = sources.length - 1;
+      currentSourceIndex.value = props.data.length - 1;
     }
   }
 

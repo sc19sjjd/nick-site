@@ -8,8 +8,8 @@
         <div class="w-full" :style="{ height: `${yPadding}rem` }"></div>
         <div class="inline-block" :style="{width: `${edgeWidth}rem`}"></div>
 
-        <li v-for="i in Array(8).keys()" key="i" ref="listItemsEl" :id="`list-item${i}`" class="overflow-y-visible relative inline-block snap-center">
-          <img ref="listItemImagesEl" class="rounded-md w-full" src="/images/Environment tryout 1.png" alt="Case study 1" 
+        <li v-for="(source, index) in props.data" :key="index" ref="listItemsEl" :id="`list-item${index}`" class="overflow-y-visible relative inline-block snap-center">
+          <img ref="listItemImagesEl" class="rounded-md w-full" :src="source.src" alt="Case study 1" 
           :style="{ width: `${listItemWidth}rem` }" />
           <div ref="listItemOverlaysEl" class="absolute top-0 left-0 w-full h-full z-40 bg-background opacity-0"></div>
           <!-- Debug li outline -->
@@ -49,9 +49,13 @@
 </style>
 
 <script setup lang="ts">
-  import type { NullableHTMLElement } from '~/types';
+  import type { NullableHTMLElement, PortfolioSource } from '~/types';
   
-  declare var ViewTimeline: any;  
+  declare var ViewTimeline: any;
+
+  const props = defineProps<{
+    data: Array<PortfolioSource>
+  }>();
 
   const scrollContainerEl = ref<NullableHTMLElement>(null);
   const listItemsEl = ref<Array<NullableHTMLElement>>([]);
@@ -217,12 +221,10 @@
 
   const scrollElementToCenter = (id: string) => {
     const element = document.getElementById(id);
-    console.log(element?.offsetLeft);
-    console.log(scrollContainerEl.value!.offsetLeft);
+
     if (element) {
       let left = element.offsetLeft + element.clientWidth - scrollContainerEl.value!.clientWidth / 2 - scrollContainerEl.value!.offsetLeft;
       // let left = element.offsetLeft - element.clientWidth * 1.5 - scrollContainerEl.value!.offsetLeft;
-      console.log(left);
       scrollContainerEl.value!.scrollTo({ left: left, behavior: 'smooth' });
     }
   }
