@@ -137,6 +137,10 @@
     }
     contactModalEl.value!.classList.remove('modal-open');
     contactModalEl.value!.classList.add('modal-closed');
+    // fix for forward animation fill not working correctly on firefox and safari
+    setTimeout(() => {
+      contactModalEl.value!.classList.add('hidden');
+    }, 300);
   }
 
   const onWindowClick = (event: MouseEvent) => {
