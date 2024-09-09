@@ -11,11 +11,11 @@
         <WrappersFullScreen class="flex-col z-10 relative">
           <div ref="titleContentEl" class="flex justify-center h-lvh xs:justify-between items-center pb-24 xs:pb-20 sm:pb-16  md:pb-10">
             <div class="flex flex-col">
-              <h1 class="text-orange-600 text-6xl xs:text-7.5xl sm:text-8xl md:text-9xl lg:text-10xl">
+              <h1 class="text-orange-600 text-5xl 2xs:text-6xl xs:text-7.5xl sm:text-8xl md:text-9xl lg:text-10xl">
                 NICHOLAS <br> CLAY
               </h1>
               <div class="xs:pb-1 sm:pb-2 lg:pb-2"></div>
-              <h3 class="text-xl sm:text-2xl lg:text-3xl pl-1 xs:pl-2 lg:pl-3">
+              <h3 class="text-lg 2xs:text-xl sm:text-2xl lg:text-3xl pl-1 xs:pl-2 lg:pl-3">
                 3D modelling and animation
               </h3>
             </div>
