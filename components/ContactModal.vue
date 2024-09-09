@@ -2,19 +2,19 @@
   <div id="contact-modal" ref="contactModalEl" class="w-full hidden h-dvh fixed top-0 left-0 bg-black/50" style="z-index: 1000">
     <div ref="contactModalOverlayEl" class="w-full h-full flex justify-end">
 
-      <div ref="contactModalContentEl" class="h-fit bg-background/90 font-black text-3xl min-w-4/12 rounded-bl-lg relative">
-        <div class="linked-in px-6 pt-4 pb-4 flex items-center relative z-10 hover:cursor-pointer" @click="() => openLinkedIn()">
+      <div ref="contactModalContentEl" class="h-fit bg-background/90 font-black text-xl xs:text-2xl md:text-3xl rounded-bl-lg relative">
+        <div class="linked-in px-4 md:px-6 py-3 md:py-4 flex items-center relative z-10 hover:cursor-pointer" @click="() => onClickLinkedIn()">
           LinkedIn
-          <img src="/public/icons/linkedin.png" alt="linkedin" class="w-8 pl-3 box-content" />
+          <img src="/public/icons/linkedin.png" alt="linkedin" class="w-6 md:w-8 pl-3 box-content" />
         </div>
 
-        <div class="email px-6 pt-4 pb-4 flex items-center relative z-10 hover:cursor-pointer rounded-bl-lg overflow-hidden" 
-        @click="() => openEmail()">
+        <div class="email px-4 md:px-6 py-3 md:py-4 flex items-center relative z-10 hover:cursor-pointer rounded-bl-lg overflow-hidden" 
+        @click="() => onClickEmail()">
           nicholasclay@gmail.com
-          <img src="/public/icons/email.png" alt="email" class="w-10 pl-2 box-content" />
+          <img src="/public/icons/email.png" alt="email" class="w-8 md:w-10 pl-2 box-content" />
         </div>
 
-        <div class="absolute top-0 right-0 pr-6 pt-6 z-10">
+        <div class="absolute top-0 right-0 pr-4 md:pr-6 pt-4 md:pt-6 z-10">
           <div @click="closeModal" class="cursor-pointer z-30 opacity-60 hover:opacity-100 transition duration-300">
             <img src="/public/icons/cross-white.png" alt="close" class="w-4 box-content" />
           </div>
@@ -151,11 +151,11 @@
     }
   }
 
-  const openLinkedIn = () => {
+  const onClickLinkedIn = () => {
     window.open('https://www.linkedin.com/in/nicholas-clay-uk/', '_blank')?.focus();
   };
 
-  const openEmail = () => {
+  const onClickEmail = () => {
     // window.location.href = 'mailto:nicholasclay@gmail.com';
     navigator.clipboard.writeText('nicholasclay@gmail.com');
     alertEmailCopied();
