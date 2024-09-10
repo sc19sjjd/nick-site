@@ -8,9 +8,9 @@
         <div class="w-full" :style="{ height: `${yPadding}rem` }"></div>
         <div class="inline-block" :style="{width: `${edgeWidth}rem`}"></div>
 
-        <li v-for="(source, index) in props.data" :key="index" ref="listItemsEl" :id="`list-item${index}`" class="overflow-y-visible relative inline-block snap-center">
-          <img ref="listItemImagesEl" class="rounded-md w-full" :src="source.src" alt="Case study 1" 
-          :style="{ width: `${listItemWidth}rem` }" />
+        <li v-for="(source, index) in props.data" :key="index" ref="listItemsEl" :id="`list-item${index}`" 
+        class="overflow-y-visible relative inline-block snap-center" :style="{ width: `${listItemWidth}rem` }">
+          <img ref="listItemImagesEl" class="rounded-md w-full" :src="source.src" alt="Case study 1" />
           <div ref="listItemOverlaysEl" class="absolute top-0 left-0 w-full h-full z-40 bg-background opacity-0"></div>
           <!-- Debug li outline -->
           <!-- <div class="absolute top-0 left-0 w-full h-full z-50 border-red-500 border-2"></div> -->
@@ -45,6 +45,14 @@
     opacity: 0.7;
     cursor: initial;
     pointer-events: none;
+  }
+
+  ul {
+    scrollbar-width: none;
+  }
+
+  li {
+    perspective: 40em;
   }
 </style>
 
@@ -155,13 +163,13 @@
 
   const createTransforms = (scales: Array<number>, translates: Array<number>) => {
     return [
-      `scale(${scales[0]}) translateX(-${translates[0]}rem)`, 
-      `scale(${scales[1]}) translateX(-${translates[1]}rem)`,
-      `scale(${scales[2]}) translateX(-${translates[2]}rem)`, 
-      `scale(${scales[3]}) translateX(${translates[3]})`, 
-      `scale(${scales[2]}) translateX(${translates[2]}rem)`,
-      `scale(${scales[1]}) translateX(${translates[1]}rem)`,
-      `scale(${scales[0]}) translateX(${translates[0]}rem)`
+      `scale(${scales[0]}) translateX(-${translates[0]*16}px)`, 
+      `scale(${scales[1]}) translateX(-${translates[1]*16}px)`,
+      `scale(${scales[2]}) translateX(-${translates[2]*16}px)`, 
+      `scale(${scales[3]}) translateX(${translates[3]*16}px)`, 
+      `scale(${scales[2]}) translateX(${translates[2]*16}px)`,
+      `scale(${scales[1]}) translateX(${translates[1]*16}px)`,
+      `scale(${scales[0]}) translateX(${translates[0]*16}px)`
     ]
   }
 
@@ -248,13 +256,3 @@
   });
 
 </script>
-
-<style scoped>
-  ul {
-    scrollbar-width: none;
-  }
-
-  li {
-    perspective: 40em;
-  }
-</style>
