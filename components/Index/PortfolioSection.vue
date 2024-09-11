@@ -37,7 +37,9 @@
 
         <WrappersFullScreen>
           <div class="flex flex-col w-full justify-center">
-            <IndexPortoflioCarousel v-model:center-item="centerItemIndex" :data="portfolioDataPreviews" />
+            <!-- <IndexPortoflioCarousel v-model:center-item="centerItemIndex" :data="portfolioDataPreviews" /> -->
+
+            <IndexPortoflioSimpleCarousel v-model:center-item="selectedItemIndex" :data="portfolioDataPreviews" />
 
             <div class="w-full z-20 flex-col items-center text-center pt-4 sm:pt-6 md:pt-4 pb-6 sm:pb-8 md:pb-10">
               <h3 class="text-lg sm:text-xl">{{ titles[centerItemIndex] }} {{ centerItemIndex }}</h3>
@@ -62,6 +64,7 @@
   import type { NullableHTMLElement } from '~/types';
 
   const centerItemIndex = ref<number>(0);
+  const selectedItemIndex = ref<number>(0);
 
   const titles = Array(8).fill('3D Environments');
   const descriptions = Array(8).fill("Done in blender with after effects and 3ds max");
