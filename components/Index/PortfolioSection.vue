@@ -76,19 +76,21 @@
 <script setup lang="ts">
   import Bowser from 'bowser';
 
-  const hasViewTimeline = computed(() => {
+  const hasViewTimeline = computed<boolean>(() => {
     if (!window || !window.navigator) {
       return false;
     }
 
     const browser = Bowser.getParser(window.navigator.userAgent);
-    return browser.satisfies({
+    const browserSatisfies = browser.satisfies({
       chrome: '>=115',
       edge: '>=115',
       opera: '>=101',
       samsung_internet: '>=115',
       android: '>=115',
     });
+
+    return browserSatisfies === true;
   });
 
   const centerItemIndex = ref<number>(0);
