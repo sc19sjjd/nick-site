@@ -1,6 +1,6 @@
 <template>
-  <div class="relative w-full flex flex-col justify-center">
-    <div ref="outerDivEl" class="relative max-w-screen-2xl flex overflow-x-hidden">
+  <div class="relative w-full flex flex-col justify-center items-center">
+    <div ref="outerDivEl" class="relative w-full max-w-screen-2xl flex overflow-x-hidden justify-center">
       <div ref="scrollContainerEl" class="flex list-none whitespace-nowrap overflow-x-auto snap-x snap-mandatory 
       scroll-smooth shrink-0 w-full pb-2 gap-6">
         <div class="pl-4 xs:hidden"></div>
