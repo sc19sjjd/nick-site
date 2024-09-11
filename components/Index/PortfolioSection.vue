@@ -37,9 +37,9 @@
 
         <WrappersFullScreen>
           <div class="flex flex-col w-full justify-center">
-            <!-- <IndexPortoflioCarousel v-model:center-item="centerItemIndex" :data="portfolioDataPreviews" /> -->
 
-            <IndexPortoflioSimpleCarousel v-model:center-item="selectedItemIndex" :data="portfolioDataPreviews" />
+            <IndexPortoflioCarousel v-if="hasViewTimeline" v-model:center-item="centerItemIndex" :data="portfolioDataPreviews" />
+            <IndexPortoflioSimpleCarousel v-else v-model:selected-item="selectedItemIndex" :data="portfolioDataPreviews" />
 
             <div class="w-full z-20 flex-col items-center text-center pt-4 sm:pt-6 md:pt-4 pb-6 sm:pb-8 md:pb-10">
               <h3 class="text-lg sm:text-xl">{{ titles[centerItemIndex] }} {{ centerItemIndex }}</h3>
@@ -48,7 +48,8 @@
           </div>
         </WrappersFullScreen>
 
-        <IndexPortoflioSeeMore :data="portfolioData[centerItemIndex]" />
+        <IndexPortoflioSeeMore v-if="hasViewTimeline" :data="portfolioData[centerItemIndex]" />
+        <IndexPortoflioSeeMore v-else :data="portfolioData[selectedItemIndex]" />
 
     </div>
   </section>
@@ -61,7 +62,19 @@
 </style>
 
 <script setup lang="ts">
-  import type { NullableHTMLElement } from '~/types';
+  import Bowser from 'bowser';
+
+
+  const hasViewTimeline = computed(() => {
+    const browser = Bowser.getParser(window.navigator.userAgent);
+    return browser.satisfies({
+      chrome: '>=115',
+      edge: '>=115',
+      opera: '>=101',
+      samsung_internet: '>=115',
+      android: '>=115',
+    });
+  });
 
   const centerItemIndex = ref<number>(0);
   const selectedItemIndex = ref<number>(0);

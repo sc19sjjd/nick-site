@@ -34,6 +34,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/google-fonts',
+    'bowser'
   ],
 
   tailwindcss: {
