@@ -64,8 +64,11 @@
 <script setup lang="ts">
   import Bowser from 'bowser';
 
-
   const hasViewTimeline = computed(() => {
+    if (!window || !window.navigator) {
+      return false;
+    }
+
     const browser = Bowser.getParser(window.navigator.userAgent);
     return browser.satisfies({
       chrome: '>=115',
