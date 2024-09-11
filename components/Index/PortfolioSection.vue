@@ -38,8 +38,12 @@
         <WrappersFullScreen>
           <div class="flex flex-col w-full justify-center">
 
-            <IndexPortoflioCarousel v-if="hasViewTimeline" v-model:center-item="centerItemIndex" :data="portfolioDataPreviews" />
-            <IndexPortoflioSimpleCarousel v-else v-model:selected-item="selectedItemIndex" :data="portfolioDataPreviews" />
+            <div v-if="hasViewTimeline">
+              <IndexPortoflioCarousel v-model:center-item="centerItemIndex" :data="portfolioDataPreviews" />
+            </div>
+            <div v-else>
+              <IndexPortoflioSimpleCarousel v-model:selected-item="selectedItemIndex" :data="portfolioDataPreviews" />
+            </div>
 
             <div class="w-full z-20 flex-col items-center text-center pt-4 sm:pt-6 md:pt-4 pb-6 sm:pb-8 md:pb-10">
               <h3 class="text-lg sm:text-xl">{{ titles[centerItemIndex] }} {{ centerItemIndex }}</h3>
@@ -48,8 +52,12 @@
           </div>
         </WrappersFullScreen>
 
-        <IndexPortoflioSeeMore v-if="hasViewTimeline" :data="portfolioData[centerItemIndex]" />
-        <IndexPortoflioSeeMore v-else :data="portfolioData[selectedItemIndex]" />
+        <div v-if="hasViewTimeline">
+          <IndexPortoflioSeeMore :data="portfolioData[centerItemIndex]" />
+        </div>
+        <div v-else>
+          <IndexPortoflioSeeMore :data="portfolioData[selectedItemIndex]" />
+        </div>
 
     </div>
   </section>
