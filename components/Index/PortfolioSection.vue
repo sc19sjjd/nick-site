@@ -76,9 +76,11 @@
 <script setup lang="ts">
   import Bowser from 'bowser';
 
-  const hasViewTimeline = computed<boolean>(() => {
+  const hasViewTimeline = ref<boolean>(false);
+
+  const updateHasViewTimeline = () => {
     if (!window || !window.navigator) {
-      return false;
+      return;
     }
 
     const browser = Bowser.getParser(window.navigator.userAgent);
@@ -90,10 +92,8 @@
       android: '>=115',
     });
 
-    console.log(hasViewTimeline);
-
-    return browserSatisfies === true;
-  });
+    hasViewTimeline.value = browserSatisfies === true;
+  }
 
   const centerItemIndex = ref<number>(0);
   const selectedItemIndex = ref<number>(0);
@@ -121,5 +121,9 @@
   ];
 
   const portfolioDataPreviews = portfolioData.map((d) => { return d[0]; });
+
+  onMounted(() => {
+    updateHasViewTimeline();
+  });
 
 </script>
