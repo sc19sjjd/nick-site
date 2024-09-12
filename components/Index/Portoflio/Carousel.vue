@@ -23,16 +23,16 @@
     <div class="w-full flex justify-center gap-8 pt-4">
 
       <div class="flex items-center justify-center w-12 h-12 rounded-full border-2 border-lightGrey/60 
-      hover:border-orange-500/70 hover:cursor-pointer transition duration-300 group" @click="() => onClickPreviousArrow()"
+      hover:border-orange-500/70 hover:cursor-pointer transition duration-200 group" @click="() => onClickPreviousArrow()"
       :class="{ 'disabled': currentCenterItemIndex == 0 }">
-        <img src="/public/icons/arrow-white.png" alt="arrow" class="w-8 h-8 opacity-50 group-hover:opacity-80 transition duration-300" 
+        <img src="/public/icons/arrow-white.png" alt="arrow" class="w-8 h-8 opacity-50 group-hover:opacity-80 transition duration-200" 
         style="transform: rotate(180deg);" />
       </div>
 
       <div class="flex items-center justify-center w-12 h-12 rounded-full border-2 border-lightGrey/60 
-      hover:border-orange-500/70 hover:cursor-pointer transition duration-300 group" @click="() => onClickNextArrow()"
+      hover:border-orange-500/70 hover:cursor-pointer transition duration-200 group" @click="() => onClickNextArrow()"
       :class="{ 'disabled': currentCenterItemIndex == 7 }">
-        <img src="/public/icons/arrow-white.png" alt="arrow" class="w-8 h-8 opacity-50 group-hover:opacity-80 transition duration-300" />
+        <img src="/public/icons/arrow-white.png" alt="arrow" class="w-8 h-8 opacity-50 group-hover:opacity-80 transition duration-200" />
       </div>
 
     </div>

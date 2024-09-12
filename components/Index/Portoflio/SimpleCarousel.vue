@@ -2,7 +2,7 @@
   <div class="relative w-full flex flex-col justify-center items-center">
     <div ref="outerDivEl" class="relative w-full max-w-screen-2xl flex overflow-x-hidden justify-center">
       <div ref="scrollContainerEl" class="flex list-none whitespace-nowrap overflow-x-auto snap-x snap-mandatory 
-      scroll-smooth shrink-0 w-full pb-2 gap-6">
+      scroll-smooth shrink-0 w-full pb-2 gap-6 xs:gap-2">
         <div class="pl-4 xs:hidden"></div>
 
         <div v-for="(source, index) in props.data" :key="index" 
@@ -79,7 +79,7 @@
 
   const itemWidth = ref(0);
   const numItems = ref(0);
-  const itemGap = 24;
+  const itemGap = 8;
 
   const updateItemWidth = () => {
     if (!outerDivEl.value) {

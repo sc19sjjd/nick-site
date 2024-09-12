@@ -9,7 +9,7 @@
     <WrappersContent id="portfolio">
       <div class="flex flex-col w-full pb-2 pt-10 xs:pt-12 sm:pt-14 md:pt-16">
         <h1 class="text-orange-600 text-5xl 2xs:text-5xl sm:text-6xl text-center" style="font-family: 'Archivo Black', sans-serif;">
-          Portfolio
+          Projects
         </h1>
 
         <!-- <div class="flex flex-col lg:flex-row justify-between items-center">
@@ -89,6 +89,8 @@
       samsung_internet: '>=115',
       android: '>=115',
     });
+
+    console.log(hasViewTimeline);
 
     return browserSatisfies === true;
   });

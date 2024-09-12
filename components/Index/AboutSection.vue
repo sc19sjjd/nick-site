@@ -11,8 +11,8 @@
             <div ref="viewReferenceEl" class="w-full"></div>
 
             <div class="text-black pb-16 xs:pb-18 sm:pb-24 lg:pb-28 pt-12 xs:pt-14 sm:pt-16 md:pt-20 relative" id="about">
-              <h2 class="text-orange-600 text-center text-6xl pb-12 xs:pb-14 sm:pb-16 md:pb-20 z-10 relative" style="font-family: 'Archivo Black', sans-serif;">
-                About me
+              <h2 class="text-orange-600 text-center text-5xl sm:text-6xl pb-12 xs:pb-14 sm:pb-16 md:pb-20 z-10 relative" style="font-family: 'Archivo Black', sans-serif;">
+                About
               </h2>
 
               <div class="flex flex-col md:flex-row w-full justify-center md:justify-around items-center md:items-end gap-4">

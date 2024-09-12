@@ -14,14 +14,14 @@
 
         <div class="absolute h-inherit w-full h-full flex items-center justify-between"> 
           <div class="relative z-20 w-12 h-12 bg-background/0 border-2 border-lightGrey/60 rounded-full flex items-center justify-center
-          hover:cursor-pointer hover:bg-background hover:border-orange-500/70 transition duration-300 group" style="transform: rotate(180deg);"
+          hover:cursor-pointer hover:bg-background hover:border-orange-500/70 transition duration-200 group" style="transform: rotate(180deg);"
           @click="() => onClickPreviousArrow()">
-            <img src="/public/icons/arrow-white.png" alt="arrow" class="w-8 h-8 opacity-50 group-hover:opacity-80 transition duration-300" />
+            <img src="/public/icons/arrow-white.png" alt="arrow" class="w-8 h-8 opacity-50 group-hover:opacity-80 transition duration-200" />
           </div>
 
           <div class="relative z-20 w-12 h-12 bg-background/0 border-2 border-lightGrey/60 rounded-full flex items-center justify-center
-          hover:cursor-pointer hover:bg-background hover:border-orange-500/70 transition duration-300 group" @click="() => onClickNextArrow()">
-            <img src="/public/icons/arrow-white.png" alt="arrow" class="w-8 h-8 opacity-50 group-hover:opacity-80 transition duration-300" />
+          hover:cursor-pointer hover:bg-background hover:border-orange-500/70 transition duration-200 group" @click="() => onClickNextArrow()">
+            <img src="/public/icons/arrow-white.png" alt="arrow" class="w-8 h-8 opacity-50 group-hover:opacity-80 transition duration-200" />
           </div>
         </div>
 
@@ -172,6 +172,9 @@
     }
     seeMoreModalEl.value!.classList.remove('modal-open');
     seeMoreModalEl.value!.classList.add('modal-closed');
+    setTimeout(() => {
+      seeMoreModalEl.value!.classList.add('hidden');
+    }, 300);
   }
 
   const onWindowClick = (event: MouseEvent) => {

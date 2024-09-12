@@ -11,7 +11,7 @@
     </div>
     <div class="hover:cursor-pointer hover:text-orange-600
     decoration-2 underline-offset-3" :class="{ 'underline': underline == 'portfolio' }" @click="() => scrollTo('portfolio')">
-      Portfolio
+      Projects
     </div>
     <div class="hover:cursor-pointer hover:text-orange-600" @click="() => openContactModal()">
       Contact
