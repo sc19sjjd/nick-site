@@ -25,17 +25,6 @@
       </div>
     </div>
 
-    <!-- <div class="absolute left-0 top-0 w-full h-full flex justify-center items-end">
-      <div class="ellipse bg-background overflow-hidden" :style="{ }">
-        <div class="sticky top-0 z-50 text-white" style="transform: translateY(-4.8rem); z-index: 100">
-          <NavBar :underline="'home'" />
-        </div>
-
-        <video class="main-video" autoplay muted loop playsinline preload="metadata">
-          <source src="/public/videos/pathways-transparent.mp4" type="video/mp4" />
-        </video>
-      </div>
-    </div> -->
   </section>
 </template>
 
