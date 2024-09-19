@@ -19,33 +19,13 @@
                 <div class="flex flex-col h-full max-w-lg md:max-w-sm lg:max-w-md justify-between items-center 
                 bg-orange-200/40 md:bg-orange-100/0 p-4 md:p-0 rounded-lg">
                   <p class="pb-10">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Mauris euismod, nisl eget ultricies ultrices, 
-                    nisl nisi aliquam nisl, euismod aliquet nisi nunc euismod. 
-                    Sed euismod, nisl eget ultricies ultrices, 
-                    nisl nisi aliquam nisl, euismod aliquet nisi nunc euismod. 
-                    Sed euismod, nisl eget ultricies ultrices, 
-                    nisl nisi aliquam nisl, euis
+                    I’m a 3D artist with a focus on creating clean, detailed models for a range of industries, from gaming to product design. My work is all about precision and bringing ideas to life in the digital space.
                   </p>
                   <p class="pb-10">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Mauris euismod, nisl eget ultricies ultrices, 
-                    nisl nisi aliquam nisl, euismod aliquet nisi nunc euismod. 
-                    Sed euismod, nisl eget ultricies ultrices, 
-                    nisl nisi aliquam nisl, euismod aliquet nisi nunc euismod.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Mauris euismod, nisl eget ultricies ultrices, 
-                    nisl nisi aliquam nisl, euismod aliquet nisi nunc euismod.
+                    With a strong passion for both form and function, I create 3D models that are not only visually striking but optimized for performance. Whether it’s characters, environments, or products, I ensure every detail serves the project’s purpose.
                   </p>
                   <p class="">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Mauris euismod, nisl eget ultricies ultrices, 
-                    nisl nisi aliquam nisl, euismod aliquet nisi nunc euismod. 
-                    Sed euismod, nisl eget ultricies ultrices, 
-                    nisl nisi aliquam nisl, euismod aliquet nisi nunc euismod.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Mauris euismod, nisl eget ultricies ultrices, 
-                    nisl nisi aliquam nisl, euismod aliquet nisi nunc euismod.
+                    Using tools like Blender and TouchDesigner, I turn concepts into fully realized 3D assets. From initial sketches to final renders, my goal is to deliver models that are ready to inspire, tell a story, or solve a problem.
                   </p>
                 </div>
 
