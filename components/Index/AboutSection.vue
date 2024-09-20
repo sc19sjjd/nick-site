@@ -15,13 +15,13 @@
                 About
               </h2>
 
-              <div class="flex flex-col md:flex-row w-full justify-center md:justify-around items-center md:items-end gap-4">
-                <div class="flex flex-col h-full max-w-lg md:max-w-sm lg:max-w-md justify-between items-center 
+              <div class="flex flex-col md:flex-row w-full justify-center md:justify-around items-center md:items-end h-full gap-4">
+                <div class="flex flex-col h-full max-w-lg md:max-w-sm lg:max-w-md md:self-start justify-between items-center 
                 bg-orange-200/40 md:bg-orange-100/0 p-4 md:p-0 rounded-lg">
-                  <p class="pb-10">
+                  <p class="pb-10 md:pb-14">
                     I’m a 3D artist with a focus on creating clean, detailed models for a range of industries, from gaming to product design. My work is all about precision and bringing ideas to life in the digital space.
                   </p>
-                  <p class="pb-10">
+                  <p class="pb-10 md:pb-14">
                     With a strong passion for both form and function, I create 3D models that are not only visually striking but optimized for performance. Whether it’s characters, environments, or products, I ensure every detail serves the project’s purpose.
                   </p>
                   <p class="">
