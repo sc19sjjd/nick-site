@@ -30,12 +30,16 @@
                 </div>
 
                 <div class="relative w-full md:w-fit flex justify-center shrink-0 md:items-end pt-8 sm:pt-10 md:pt-0">
-                  <img ref="roomRenderEl" class="w-full max-w-sm lg:max-w-md object-cover" src="/public/images/room-render.png" alt="room render" />
-                  <img ref="bedEl" class="bed absolute hidden md:block" src="/public/images/bed.png" alt="bed" />
-                  <img ref="deskEl" class="desk absolute hidden md:block" src="/public/images/desk.png" alt="desk" />
-                  <img ref="chairEl" class="chair absolute hidden md:block" src="/public/images/chair.png" alt="chair" />
-                  <img ref="plantLampEl" class="plant-lamp absolute hidden md:block" src="/public/images/plant-lamp.png" alt="plant lamp" />
-                  <img ref="shelvesEl" class="shelves absolute hidden md:block" src="/public/images/shelves.png" alt="shelves" />
+                  <div class="w-full max-w-sm lg:max-w-md relative">
+                    <img ref="roomEl" class="relative" src="/public/images/room/room.png" alt="room" />
+                    <!-- <img ref="bedEl" class="bed absolute hidden md:block" src="/public/images/bed.png" alt="bed" /> -->
+                    <img ref="deskEl" class="absolute left-0 top-0" src="/public/images/room/desk.png" alt="desk" />
+                    <!-- <img ref="chairEl" class="chair absolute hidden md:block" src="/public/images/chair.png" alt="chair" /> -->
+                    <img ref="plantEl" class="absolute left-0 top-0" src="/public/images/room/plant.png" alt="plant" />
+                    <!-- <img ref="shelvesEl" class="shelves absolute hidden md:block" src="/public/images/shelves.png" alt="shelves" /> -->
+                    <img ref="lampEl" class="absolute left-0 top-0" src="/public/images/room/lamp.png" alt="lamp" />
+                    <img ref="posterEl" class="absolute left-0 top-0" src="/public/images/room/poster.png" alt="poster" />
+                  </div>
                 </div>
               </div>
 
@@ -70,7 +74,19 @@
     left: 275px;
   }
 
-  .plant-lamp {
+  .plant {
+    width: 129px;
+    bottom: 90px;
+    left: 26px;
+  }
+
+  .lamp {
+    width: 129px;
+    bottom: 90px;
+    left: 26px;
+  }
+
+  .poster {
     width: 129px;
     bottom: 90px;
     left: 26px;
@@ -153,21 +169,17 @@
   declare var ViewTimeline: any;  
 
   const viewReferenceEl = ref<NullableHTMLElement>(null);
-  const roomRenderEl = ref<NullableHTMLElement>(null);
-  const bedEl = ref<NullableHTMLElement>(null);
+  const roomEl = ref<NullableHTMLElement>(null);
+  // const bedEl = ref<NullableHTMLElement>(null);
   const deskEl = ref<NullableHTMLElement>(null);
-  const chairEl = ref<NullableHTMLElement>(null);
-  const plantLampEl = ref<NullableHTMLElement>(null);
-  const shelvesEl = ref<NullableHTMLElement>(null);
+  // const chairEl = ref<NullableHTMLElement>(null);
+  const plantEl = ref<NullableHTMLElement>(null);
+  const lampEl = ref<NullableHTMLElement>(null);
+  const posterEl = ref<NullableHTMLElement>(null);
+  // const shelvesEl = ref<NullableHTMLElement>(null);
 
   const createScrollAnimations = (
     viewReference: NullableHTMLElement,
-    roomRender: NullableHTMLElement,
-    bed: NullableHTMLElement,
-    desk: NullableHTMLElement,
-    chair: NullableHTMLElement,
-    plantLamp: NullableHTMLElement,
-    shelves: NullableHTMLElement
   ) => {
     const timeline = new ViewTimeline({
       subject: viewReference,
@@ -176,9 +188,9 @@
 
     const opacity = [0, 0.5, 1, 1, 1, 1];
 
-    roomRender!.animate(
+    roomEl.value!.animate(
       {
-        transform: ["translateY(-100px)", "translateY(0)"],
+        transform: ["translateY(-150px)", "translateY(0)"],
         opacity: opacity
       },
       {
@@ -187,73 +199,89 @@
       }
     );
 
-    bed!.animate(
+    // bed!.animate(
+    //   {
+    //     transform: ["translateY(-200px)", "translateY(0)"],
+    //     opacity: opacity
+    //   },
+    //   {
+    //     fill: "both",
+    //     timeline: timeline,
+    //   }
+    // );
+
+    deskEl.value!.animate(
+      {
+        transform: ["translateY(-400px)", "translateY(0)"],
+        opacity: opacity
+      },
+      {
+        fill: "both",
+        timeline: timeline,
+      }
+    );
+
+    // chair!.animate(
+    //   {
+    //     transform: ["translateY(-300px)", "translateY(0)"],
+    //     opacity: opacity
+    //   },
+    //   {
+    //     fill: "both",
+    //     timeline: timeline,
+    //   }
+    // );
+
+    plantEl.value!.animate(
+      {
+        transform: ["translateY(-250px)", "translateY(0)"],
+        opacity: opacity
+      },
+      {
+        fill: "both",
+        timeline: timeline,
+      }
+    );
+
+    lampEl.value!.animate(
+      {
+        transform: ["translateY(-300px)", "translateY(0)"],
+        opacity: opacity
+      },
+      {
+        fill: "both",
+        timeline: timeline
+      }
+    );
+
+    posterEl.value!.animate(
       {
         transform: ["translateY(-200px)", "translateY(0)"],
         opacity: opacity
       },
       {
         fill: "both",
-        timeline: timeline,
+        timeline: timeline
       }
     );
-
-    desk!.animate(
-      {
-        transform: ["translateY(-550px)", "translateY(0)"],
-        opacity: opacity
-      },
-      {
-        fill: "both",
-        timeline: timeline,
-      }
-    );
-
-    chair!.animate(
-      {
-        transform: ["translateY(-300px)", "translateY(0)"],
-        opacity: opacity
-      },
-      {
-        fill: "both",
-        timeline: timeline,
-      }
-    );
-
-    plantLamp!.animate(
-      {
-        transform: ["translateY(-300px)", "translateY(0)"],
-        opacity: opacity
-      },
-      {
-        fill: "both",
-        timeline: timeline,
-      }
-    );
-
-    shelves!.animate(
-      {
-        transform: ["translateY(-500px)", "translateY(0)"],
-        opacity: opacity
-      },
-      {
-        fill: "both",
-        timeline: timeline,
-      }
-    );
+      
+    // shelves!.animate(
+    //   {
+    //     transform: ["translateY(-500px)", "translateY(0)"],
+    //     opacity: opacity
+    //   },
+    //   {
+    //     fill: "both",
+    //     timeline: timeline,
+    //   }
+    // );
   };
 
   let resizeObserver: ResizeObserver;
 
   onMounted(() => {
     createScrollAnimations(
-      viewReferenceEl.value,
-      roomRenderEl.value,
-      bedEl.value,
-      deskEl.value,
-      chairEl.value,
-      plantLampEl.value,
-      shelvesEl.value
+      viewReferenceEl.value
     );
 
     resizeObserver = new ResizeObserver(updateTotalContentHeight);
