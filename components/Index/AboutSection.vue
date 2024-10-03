@@ -294,7 +294,7 @@
         aboutNavBarEl.value!.style.display = 'none';
         aboutNavBarEl.value!.offsetHeight; // Trigger reflow
         aboutNavBarEl.value!.style.display = 'block';
-      }, 1000);
+      }, 2000);
     }
   });
 </script>
